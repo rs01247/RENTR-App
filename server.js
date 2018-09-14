@@ -21,9 +21,10 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// ROUTING FOR API
+// ROUTE TO API.ROUTES AND AUTH.ROUTES
 app.use(routes);
 
+// CHANGE TO FORCE:TRUE BEFORE DEPLOYING
 db.sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {
         console.log(`Listening to ${PORT}`);
