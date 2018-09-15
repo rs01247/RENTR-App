@@ -13,7 +13,7 @@ module.exports = (app) => {
     });
 
     /**GET ONE user from User table */
-    app.get("/api/user/:email", (req, res) => {
+    app.get("/api/user/:email", (req, res) => {s
         db.User.findOne({
             where: {
                 email: req.params.email
@@ -135,6 +135,5 @@ module.exports = (app) => {
                 res.json(dbUser);
             });
     });
-
 
 };

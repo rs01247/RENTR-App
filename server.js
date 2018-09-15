@@ -1,11 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const routes = require("./routes");
-const db = require("./models");
+const morgan = require("morgan");
+const routes = require("./api/routes");
+const db = require("./api/models");
 
-const app = express();
 const PORT = process.env.PORT || 3001;
+const app = express();
+
+
+// HTML REQUEST LOGGER
+app.use(morgan("dev"))
 
 // BODY PARSER FOR AJAX REQEUESTS
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,8 +26,8 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// ROUTE TO API.ROUTES AND AUTH.ROUTES
-app.use(routes);
+// ROUTING TO API FOLDER 
+app.use("./api", routes);
 
 // CHANGE TO FORCE:TRUE BEFORE DEPLOYING
 db.sequelize.sync({ force: true }).then(function () {
