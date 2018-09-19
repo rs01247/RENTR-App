@@ -7,6 +7,7 @@ import MainNav from "./components/MainPage/Navbar/Navbar"
 import MainBody from "./components/MainPage/PostBody/PostBody"
 import MainFooter from "./components/MainPage/Footer/Footer"
 import Register from "./components/Register/Register/Register"
+import Chat from "./components/chat/Chat"
 
 
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path="/" component={MainBody} exact />
             <Route path="/login" component={Login} exact />
             <Route path="/register" component={Register} exact />
+            <Route path="/chat" component={Chat} exact />
             <MainFooter />
           </div>
 

@@ -7,7 +7,7 @@ import "./Register.css"
 const Register = () => (
     
     <div>
-<body id="login-form">
+<div id="login-form">
     <div className="container">
     <div className="login-form">
     <div className="main-div">
@@ -51,7 +51,7 @@ const Register = () => (
     </div>
     </div>
     </div>
-    </body>
+    </div>
 
     </div>
 )
