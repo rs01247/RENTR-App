@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./components/LoginPage/LoginPage/Login"
@@ -15,9 +14,7 @@ class App extends Component {
   render() {
     return (
       <div>
-
         <Router>
-
           <div>
             <MainNav />
             <Route path="/" component={MainBody} exact />
@@ -26,31 +23,10 @@ class App extends Component {
             <Route path="/chat" component={Chat} exact />
             <MainFooter />
           </div>
-
-
         </Router>
       </div>
     )
   }
 }
-
-
-
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <Login />
-//         <MainNav />
-//          <MainBody />
-//         <MainFooter /> 
-//         <Register />
-//       </div>
-//     );
-//   }
-// }
-
-
 
 export default App;
