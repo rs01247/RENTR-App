@@ -110,6 +110,25 @@ class Register extends Component {
                                 </div>
                             </form>
 
+<<<<<<< HEAD
+const Register = () => (
+    
+    <div>
+<div id="login-form">
+    <div className="container">
+    <div className="login-form">
+    <div className="main-div">
+    <div class="panel">
+    <h1 id="heading">Register</h1>
+    
+
+    <form id="username">
+    <div className="form-group">
+    <input type ="username" className="form-control" id="registerFirstname" placeholder ="First Name"></input>
+    </div>
+    </form>
+=======
+>>>>>>> 9b24c62b142f4e7c2860fdffad1e7003e2c26080
 
                             <form id="password">
                                 <div className="form-group">
@@ -134,6 +153,13 @@ class Register extends Component {
                             <a href="/login" id="cancel">Cancel</a>
 
 
+<<<<<<< HEAD
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+=======
 
 
                         </div>
@@ -141,6 +167,7 @@ class Register extends Component {
                 </div>
             </div>
         </body>
+>>>>>>> 9b24c62b142f4e7c2860fdffad1e7003e2c26080
 
     </div>
 )
