@@ -1,7 +1,6 @@
-import React, { Component } from 'react';;
-import "./Register.css"
+import React, { Component } from 'react';
 import axios from "axios";
-
+import "./Register.css"
 
 class Register extends Component {
     constructor(props) {
@@ -110,7 +109,6 @@ class Register extends Component {
                                 </div>
                             </form>
 
-<<<<<<< HEAD
 const Register = () => (
     
     <div>
@@ -127,8 +125,6 @@ const Register = () => (
     <input type ="username" className="form-control" id="registerFirstname" placeholder ="First Name"></input>
     </div>
     </form>
-=======
->>>>>>> 9b24c62b142f4e7c2860fdffad1e7003e2c26080
 
                             <form id="password">
                                 <div className="form-group">
@@ -153,13 +149,6 @@ const Register = () => (
                             <a href="/login" id="cancel">Cancel</a>
 
 
-<<<<<<< HEAD
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-=======
 
 
                         </div>
@@ -167,7 +156,6 @@ const Register = () => (
                 </div>
             </div>
         </body>
->>>>>>> 9b24c62b142f4e7c2860fdffad1e7003e2c26080
 
     </div>
 )
