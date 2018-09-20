@@ -1,1 +1,1 @@
-export { default } from "./HomePageBody";
+export { default } from "./PostBody";

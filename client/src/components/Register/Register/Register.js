@@ -25,7 +25,7 @@ class Register extends Component {
     submit = e => {
         e.preventDefault();
         // Change the "/" route;
-        axios.post("/",  {
+        axios.post("./api/controllers",  {
             firstName: this.firstName,
             lastName: this.lastName,
             email: this.email,
@@ -35,6 +35,7 @@ class Register extends Component {
         .then(res => {
             //Change the "/" route;
             window.location.assign("/" + res.data.id);
+            console.log(res)
         })
         .catch(e => {
             console.error(e)
@@ -43,7 +44,7 @@ class Register extends Component {
     render(){
         return(
             <div>
-            <body id="login-form">
+            <div className="login-form">
                 <div className="container">
                     <div className="login-form">
                         <div className="main-div">
@@ -53,26 +54,32 @@ class Register extends Component {
     
                                 <form id="username">
                                     <div className="form-group">
-                                        <input type="username" className="form-control" id="registerFirstname" name="firstName" placeholder="First Name"></input>
+                                        <input type="username" className="form-control" id="registerFirstname" name="firstName" value ={this.state.firstName} onChange = {this.onChange} placeholder="First Name"></input>
                                     </div>
                                 </form>
     
     
                                 <form id="password">
                                     <div className="form-group">
-                                        <input type="username" className="form-control" id="regsiterLastname" name="lastName" placeholder="Last Name"></input>
+                                        <input type="username" className="form-control" id="regsiterLastname" name="lastName"  value ={this.state.lastName} onChange = {this.onChange} placeholder="Last Name"></input>
+                                    </div>
+                                </form>
+
+                                  <form id="email">
+                                    <div className="form-group">
+                                        <input type="email" className="form-control" id="registerEmail" name="email"  value ={this.state.email} onChange = {this.onChange} placeholder="Email"></input>
                                     </div>
                                 </form>
     
                                 <form id="password">
                                     <div className="form-group">
-                                        <input type="password" className="form-control" id="registerUsername" name="userName" placeholder="UserName"></input>
+                                        <input type="username" className="form-control" id="registerUsername" name="userName"  value ={this.state.userName} onChange = {this.onChange} placeholder="UserName"></input>
                                     </div>
                                 </form>
     
                                 <form id="password">
                                     <div className="form-group">
-                                        <input type="password" className="form-control" id="regsiterPassword"  name="passWord" placeholder="Password"></input>
+                                        <input type="password" className="form-control" id="regsiterPassword"  name="passWord" value ={this.state.password} onChange = {this.onChange} placeholder="Password"></input>
                                     </div>
                                 </form>
     
@@ -87,7 +94,7 @@ class Register extends Component {
                         </div>
                     </div>
                 </div>
-            </body>
+            </div>
     </div>
         )
     }
