@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
     const ItemReview = sequelize.define("ItemReview", {
-        itemName: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        // itemName: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
         review: {
             type: DataTypes.STRING,
             allowNull: false
