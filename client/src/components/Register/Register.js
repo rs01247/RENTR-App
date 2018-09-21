@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import axios from "axios";
+import React, { Component } from "react";
 import "./Register.css"
+import axios from "axios";
+
 
 class Register extends Component {
     constructor(props) {
@@ -17,32 +18,43 @@ class Register extends Component {
         }
     }
 
+
+
     onChange = e => this.setState({
         [e.target.name]: e.target.value
+
     })
 
-    submit = e => {
+
+
+
+    onClick = e => {
         e.preventDefault();
         // Change the "/" route;
-        axios.post("/", {
-            firstName: this.firstName,
-            lastName: this.lastName,
-            email: this.email,
-            userName: this.userName,
-            password: this.password
+        axios.post("/api/controllers", {
+
+            // console.log(this.state.firstName)
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            userName: this.state.userName,
+            password: this.state.password
+            // console.log(this.state.firstName, this.state.lastName, this.state.email)
         })
             .then(res => {
                 //Change the "/" route;
-                window.location.assign("/" + res.data.id);
+                window.location.assign("/users/" + res.data.id);
+                console.log(res)
             })
             .catch(e => {
                 console.error(e)
             })
+
     }
     render() {
         return (
             <div>
-                <body id="login-form">
+                <div className="login-form">
                     <div className="container">
                         <div className="login-form">
                             <div className="main-div">
@@ -52,30 +64,36 @@ class Register extends Component {
 
                                     <form id="username">
                                         <div className="form-group">
-                                            <input type="username" className="form-control" id="registerFirstname" name="firstName" placeholder="First Name"></input>
+                                            <input type="username" className="form-control" id="registerFirstname" name="firstName" value={this.state.firstName} onChange={this.onChange} placeholder="First Name"></input>
                                         </div>
                                     </form>
 
 
                                     <form id="password">
                                         <div className="form-group">
-                                            <input type="username" className="form-control" id="regsiterLastname" name="lastName" placeholder="Last Name"></input>
+                                            <input type="username" className="form-control" id="regsiterLastname" name="lastName" value={this.state.lastName} onChange={this.onChange} placeholder="Last Name"></input>
+                                        </div>
+                                    </form>
+
+                                    <form id="email">
+                                        <div className="form-group">
+                                            <input type="email" className="form-control" id="registerEmail" name="email" value={this.state.email} onChange={this.onChange} placeholder="Email"></input>
                                         </div>
                                     </form>
 
                                     <form id="password">
                                         <div className="form-group">
-                                            <input type="password" className="form-control" id="registerUsername" name="userName" placeholder="UserName"></input>
+                                            <input type="username" className="form-control" id="registerUsername" name="userName" value={this.state.userName} onChange={this.onChange} placeholder="UserName"></input>
                                         </div>
                                     </form>
 
                                     <form id="password">
                                         <div className="form-group">
-                                            <input type="password" className="form-control" id="regsiterPassword" name="passWord" placeholder="Password"></input>
+                                            <input type="password" className="form-control" id="regsiterPassword" name="passWord" value={this.state.password} onChange={this.onChange} placeholder="Password"></input>
                                         </div>
                                     </form>
-
-                                    <button type="submit" className="btn btn-primary">Submit</button>
+                                    {/* submit or click */}
+                                    <button type="click" onClick={this.onClick} className="btn btn-primary">Submit</button>
 
                                     <a href="/login" id="cancel">Cancel</a>
 
@@ -86,80 +104,13 @@ class Register extends Component {
                             </div>
                         </div>
                     </div>
-                </body>
+                </div>
             </div>
         )
     }
 }
 
-{/* const Register = () => (
 
-    <div>
-        <body id="login-form">
-            <div className="container">
-                <div className="login-form">
-                    <div className="main-div">
-                        <div class="panel">
-                            <h1 id="heading">Register</h1>
-
-
-                            <form id="username">
-                                <div className="form-group">
-                                    <input type="username" className="form-control" id="registerFirstname" placeholder="First Name"></input>
-                                </div>
-                            </form>
-
-const Register = () => (
-    
-    <div>
-<div id="login-form">
-    <div className="container">
-    <div className="login-form">
-    <div className="main-div">
-    <div class="panel">
-    <h1 id="heading">Register</h1>
-    
-
-    <form id="username">
-    <div className="form-group">
-    <input type ="username" className="form-control" id="registerFirstname" placeholder ="First Name"></input>
-    </div>
-    </form>
-
-                            <form id="password">
-                                <div className="form-group">
-                                    <input type="username" className="form-control" id="regsiterLastname" placeholder="Last Name"></input>
-                                </div>
-                            </form>
-
-                            <form id="password">
-                                <div className="form-group">
-                                    <input type="password" className="form-control" id="registerUsername" placeholder="UserName"></input>
-                                </div>
-                            </form>
-
-                            <form id="password">
-                                <div className="form-group">
-                                    <input type="password" className="form-control" id="regsiterPassword" placeholder="Password"></input>
-                                </div>
-                            </form>
-
-                            <button type="submit" class="btn btn-primary">Submit</button>
-
-                            <a href="/login" id="cancel">Cancel</a>
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </body>
-
-    </div>
-)
- */}
 
 
 
