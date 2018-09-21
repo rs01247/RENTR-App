@@ -15,6 +15,13 @@ class Login extends Component {
         }
     }
 
+
+    onChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
     render() {
         return (
 
@@ -32,14 +39,14 @@ class Login extends Component {
 
                                     <form id="username">
                                         <div className="form-group">
-                                            <input type="email" className="form-control" id="inputUsername" name="userName" placeholder="UserName"></input>
+                                            <input type="email" className="form-control" id="inputUsername" name="userName" placeholder="UserName" onChange={this.onChange}></input>
                                         </div>
                                     </form>
 
 
                                     <form id="password">
                                         <div className="form-group">
-                                            <input type="password" className="form-control" id="inputPassword" name="password"placeholder="Password"></input>
+                                            <input type="password" className="form-control" id="inputPassword" name="password"placeholder="Password"onChange={this.onChange}></input>
                                         </div>
                                     </form>
 

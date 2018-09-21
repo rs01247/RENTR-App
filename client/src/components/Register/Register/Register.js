@@ -22,26 +22,34 @@ class Register extends Component {
 
     onChange = e => this.setState ({
         [e.target.name]: e.target.value
+
     })
-     
-    submit = e => {
+
+
+    
+
+    onClick = e => {
         e.preventDefault();
         // Change the "/" route;
-        axios.post("./api/controllers",  {
-            firstName: this.firstName,
-            lastName: this.lastName,
-            email: this.email,
-            userName: this.userName,
-            password: this.password
+        axios.post("/api/controllers",  {
+
+            // console.log(this.state.firstName)
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            userName: this.state.userName,
+            password: this.state.password
+        // console.log(this.state.firstName, this.state.lastName, this.state.email)
         })
         .then(res => {
             //Change the "/" route;
-            window.location.assign("/" + res.data.id);
+            window.location.assign("/users/" + res.data.id);
             console.log(res)
         })
         .catch(e => {
             console.error(e)
           })
+
     }
     render(){
         return(
@@ -84,8 +92,8 @@ class Register extends Component {
                                         <input type="password" className="form-control" id="regsiterPassword"  name="passWord" value ={this.state.password} onChange = {this.onChange} placeholder="Password"></input>
                                     </div>
                                 </form>
-    
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                {/* submit or click */}
+                                <button type="click" onClick={this.onClick} className="btn btn-primary">Submit</button>
     
                                 <a href="/login" id="cancel">Cancel</a>
     

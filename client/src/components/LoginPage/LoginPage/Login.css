@@ -50,8 +50,8 @@ body
   color: #ffffff;
   font-size: 14px;
   width: 100%;
-  height: 50px;
-  line-height: 40px;
+  height: 20px;
+  line-height: 0px;
   padding: 0;
   
 }
@@ -75,8 +75,3 @@ body
   right: 35px;
 }
 
-.social-buttons{
-  position: relative;
-  top: 25px;
-  right: 15px;
-}
