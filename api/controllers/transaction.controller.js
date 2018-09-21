@@ -5,9 +5,26 @@ module.exports = {
     // CREATE
     createTransaction:  (req, res) => {
         console.log(req.body);
-        db.Transaction.create(
-            req.body
-        )
+        console.log(db.Transaction.associations)
+        const transaction = {
+            itemId: req.body.itemId,
+            ownerId: req.body.ownerId,
+            requestorId: req.body.requestorId
+        }
+        db.Transaction.create(transaction, {
+            include: [
+             {
+                association: db.Request.associations.Item
+            },
+            {
+                association: db.Request.associations.Requestor
+            },
+            {
+                association: db.Request.associations.Owner
+            }
+        ]
+
+        })
             .then((dbTransaction) => {
                 res.json(dbTransaction);
             });
@@ -27,7 +44,25 @@ module.exports = {
     
     // FIND ALL
     findAllTransaction:  (req, res) => {
-        db.Transaction.findAll({})
+        const transaction = {
+            itemId: req.body.itemId,
+            ownerId: req.body.ownerId,
+            requestorId: req.body.requestorId
+        }
+            db.Transaction.findAll(transaction, {
+                include: [
+                 {
+                    association: db.Transaction.associations.Item
+                },
+                {
+                    association: db.Transaction.associations.Requestor
+                },
+                {
+                    association: db.Transaction.associations.Owner
+                }
+            ]
+    
+        })
             .then((dbTransaction) => {
                 res.json(dbTransaction);
             });
