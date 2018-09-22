@@ -32,14 +32,14 @@ class Register extends Component {
     onClick = e => {
         e.preventDefault();
         // Change the "/" route;
-        axios.post("/api/users", {
+        axios.post("api/user/", {
 
             // console.log(this.state.firstName)
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
             location: this.state.location,
-            phoneNumber: this.location.phoneNumber,
+            phoneNumber: this.state.phoneNumber,
             userName: this.state.userName,
             password: this.state.password
             // console.log(this.state.firstName, this.state.lastName, this.state.email)
@@ -106,7 +106,7 @@ class Register extends Component {
 
                                     <form id="password">
                                         <div className="form-group">
-                                            <input type="password" className="form-control" id="regsiterPassword" name="passWord" value={this.state.password} onChange={this.onChange} placeholder="Password"></input>
+                                            <input type="password" className="form-control" id="regsiterPassword" name="password" value={this.state.password} onChange={this.onChange} placeholder="Password"></input>
                                         </div>
                                     </form>
                                     {/* submit or click */}
