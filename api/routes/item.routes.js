@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 // CONTROLLER
-const ctrl = require('../controllers/user.controller')
+const ctrl = require('../controllers/item.controller')
 
-/**CREATE new user to User table */
-router.post("/", ctrl.createUser);
-/**GET ONE user from User table */
-router.get("/:id", ctrl.findOneUser);
-/**GET ALL user data from User table */
-router.get("/", ctrl.findAllUser);
-/**UPDATE user WHERE user is email FROM User table */
-router.put("/:id", ctrl.updateUser);
-/**DELETE user WHERE email is user FROM User table */
-router.delete("/:id", ctrl.deleteUser);
+/**CREATE new item to Item table */
+router.post("/", ctrl.createItem);
+/**GET ONE Item from Item table */
+router.get("/:id", ctrl.findOneItem);
+/**GET ALL Item data from Item table */
+router.get("/", ctrl.findAllItem);
+/**UPDATE Item WHERE Item is email FROM Item table */
+router.put("/:id", ctrl.updateItem);
+/**DELETE Item WHERE email is Item FROM Item table */
+router.delete("/:id", ctrl.deleteItem);
 
 module.exports = router;

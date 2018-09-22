@@ -19,10 +19,10 @@ const Footer = () => (
     <div className="footer-copyright text-center py-3">© 2018 Copyright:
       <a href="/"> MDBootstrap.com</a>
       <span>
-      <a href="#" className="fa  ml-2 fa-facebook"></a>
+      <a href="/" className="fa  ml-2 fa-facebook"></a>
     
-        <a href="#" className="fa ml-2 fa-twitter"></a>
-        <a href="#" className="fa ml-2 fa-google"></a>
+        <a href="/" className="fa ml-2 fa-twitter"></a>
+        <a href="/" className="fa ml-2 fa-google"></a>
         </span>
 
     </div>
