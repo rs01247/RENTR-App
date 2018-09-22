@@ -21,13 +21,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// ROUTING TO API FOLDER 
+app.use("/api", routes);
+
 // SEND EVERY REQUEST TO REACT APP
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
-// ROUTING TO API FOLDER 
-app.use("./api", routes);
+
 
 // CHANGE TO FORCE:TRUE BEFORE DEPLOYING
 db.Sequelize.sync({ force: true }).then(function () {
