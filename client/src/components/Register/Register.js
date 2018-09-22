@@ -12,9 +12,10 @@ class Register extends Component {
             firstName: "",
             lastName: "",
             email: "",
+            location: "",
+            phoneNumber: "",
             userName: "",
             password: ""
-
         }
     }
 
@@ -31,12 +32,14 @@ class Register extends Component {
     onClick = e => {
         e.preventDefault();
         // Change the "/" route;
-        axios.post("/api/controllers", {
+        axios.post("/api/users", {
 
             // console.log(this.state.firstName)
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
+            location: this.state.location,
+            phoneNumber: this.location.phoneNumber,
             userName: this.state.userName,
             password: this.state.password
             // console.log(this.state.firstName, this.state.lastName, this.state.email)
@@ -49,6 +52,8 @@ class Register extends Component {
             .catch(e => {
                 console.error(e)
             })
+
+    
 
     }
     render() {
@@ -78,6 +83,18 @@ class Register extends Component {
                                     <form id="email">
                                         <div className="form-group">
                                             <input type="email" className="form-control" id="registerEmail" name="email" value={this.state.email} onChange={this.onChange} placeholder="Email"></input>
+                                        </div>
+                                    </form>
+
+                                     <form id="location">
+                                        <div className="form-group">
+                                            <input type="location" className="form-control" id="registerLocation" name="location" value={this.state.location} onChange={this.onChange} placeholder="Enter Zip Code"></input>
+                                        </div>
+                                    </form>
+
+                                     <form id="phoneNumber">
+                                        <div className="form-group">
+                                            <input type="phoneNumber" className="form-control" id="phoneNumber" name="phoneNumber" value={this.state.phoneNumber} onChange={this.onChange} placeholder="Phone Number"></input>
                                         </div>
                                     </form>
 

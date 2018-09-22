@@ -27,12 +27,12 @@ app.use("/api", routes);
 // SEND EVERY REQUEST TO REACT APP
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 
-
 // CHANGE TO FORCE:TRUE BEFORE DEPLOYING
-db.Sequelize.sync({ force: true }).then(function () {
+db.Sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
         console.log(`Listening to ${PORT}`);
     });
