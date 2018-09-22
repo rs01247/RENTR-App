@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports = {
 
     // CREATE
-    createItem:  (req, res) => {
+    createItem: (req, res) => {
         console.log(req.body);
         db.Item.create(
             req.body
@@ -24,17 +24,32 @@ module.exports = {
                 res.json(dbItem);
             });
     },
-    
+
     // FIND ALL
-    findAllItem:  (req, res) => {
+    findAllItem: (req, res) => {
         db.Item.findAll({})
             .then((dbItem) => {
                 res.json(dbItem);
             });
     },
 
+    //FIND ALL ITEM BY USER
+    findItemByUser: (req, res) => {
+        const item = {
+            itemId: req.body.itemId,
+            ownerId: req.body.ownerId
+        }
+        db.Item.findAll(item, {
+            include: [
+                {
+                    association: db.Item.associations.User
+                }
+            ]
+        });
+    },
+
     // UPDATE
-    updateItem:  (req, res) => {
+    updateItem: (req, res) => {
         db.Item.update(req.body,
             {
                 where: {

@@ -6,7 +6,7 @@ import MainNav from "./components/MainPage/Navbar"
 import PostBody from "./components/MainPage/PostBody"
 import MainFooter from "./components/MainPage/Footer"
 import Register from "./components/Register"
-import Chat from "./components/Chat"
+import Chat from "./components/Chat/Chat"
 
 
 
