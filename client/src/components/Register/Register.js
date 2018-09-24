@@ -53,7 +53,7 @@ class Register extends Component {
                 console.error(e)
             })
 
-    
+
 
     }
     render() {
@@ -67,14 +67,14 @@ class Register extends Component {
                                     <h1 id="heading">Register</h1>
 
 
-                                    <form id="username">
+                                    <form id="firstName">
                                         <div className="form-group">
                                             <input type="username" className="form-control" id="registerFirstname" name="firstName" value={this.state.firstName} onChange={this.onChange} placeholder="First Name"></input>
                                         </div>
                                     </form>
 
 
-                                    <form id="password">
+                                    <form id="lastName">
                                         <div className="form-group">
                                             <input type="username" className="form-control" id="regsiterLastname" name="lastName" value={this.state.lastName} onChange={this.onChange} placeholder="Last Name"></input>
                                         </div>
@@ -98,7 +98,7 @@ class Register extends Component {
                                         </div>
                                     </form>
 
-                                    <form id="password">
+                                    <form id="userName">
                                         <div className="form-group">
                                             <input type="username" className="form-control" id="registerUsername" name="userName" value={this.state.userName} onChange={this.onChange} placeholder="UserName"></input>
                                         </div>

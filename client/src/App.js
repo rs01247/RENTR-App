@@ -7,7 +7,8 @@ import PostBody from "./components/MainPage/PostBody"
 import MainFooter from "./components/MainPage/Footer"
 import Register from "./components/Register"
 import Chat from "./components/Chat/Chat"
-
+import ItemPage from "./components/ItemPage/ItemPage"
+import Logout from "./components/Logout/Logout"
 
 
 class App extends Component {
@@ -17,10 +18,13 @@ class App extends Component {
         <Router>
           <div>
             <MainNav />
+            <Logout />
             <Route path="/" component={PostBody} exact />
             <Route path="/login" component={Login} exact />
             <Route path="/register" component={Register} exact />
             <Route path="/chat" component={Chat} exact />
+            <Route path ="/itempage" component = {ItemPage} exact />
+
             <MainFooter />
           </div>
         </Router>
