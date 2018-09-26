@@ -4,12 +4,10 @@
 
 #login{ 
     position: relative;
-    left: 880px;
-    
+    left: 880px;   
 }
 
-
-.btn.btn-primary {
+/* .btn.btn-primary {
     background: #f0ad4e none repeat scroll 0 0;
     border-color: #f0ad4e;
     color: #ffffff;
@@ -19,11 +17,13 @@
     line-height: 40px;
     padding: 0;
     
-  }
+} */
 
-#title{
+#title{ 
     position: relative;
-    right: 43%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 4vh;
+    /* right: 43%; */
 }
 
 
@@ -31,8 +31,7 @@
     background: white;
 }
 
-nav{
+/* nav{
     margin: 5px;  
-
-}
+} */
 

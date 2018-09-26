@@ -45,7 +45,7 @@ app.use("/api", routes);
 
 
 
-// CHANGE TO FORCE:TRUE BEFORE DEPLOYING
+// CHANGE TO FORCE:FALSE BEFORE DEPLOYING
 db.Sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
         console.log(`Listening to ${PORT}`);

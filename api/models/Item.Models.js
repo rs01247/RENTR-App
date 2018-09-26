@@ -7,18 +7,22 @@ module.exports = (sequelize, DataTypes) => {
                 len: [5]
             }
         },
-        // itemName: {
-        //     type: DataTypes.STRING,
-        //     allowNull: true,
-        // },
+        itemName: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
+        image: {
+            type: DataTypes.TEXT,
             allowNull: true
         },
         date: {
             type: DataTypes.DATE,
             default: Date.now,
-            allowNull: true
+            allowNull: true 
         },
         isAvailable: {
             type: DataTypes.BOOLEAN,

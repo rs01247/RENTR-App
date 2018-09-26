@@ -1,4 +1,4 @@
-.item-card {
+/* .item-card {
     background: #fff;
     border-radius: 2px;
     height: 180px;
@@ -25,5 +25,40 @@
 .item-card > .content {
     padding-left: 1rem;
     padding-right: 1rem;
-}
+} */
   
+.item-card {
+    width: 200px;
+    height: 300px;
+    /* border-radius: 2px; */
+    margin: .5rem;
+    position: relative;
+    float: left;
+    text-align: center;
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+    /* box-shadow: 0 3px 6px #f2f2f2, 0 3px 6px #f2f2f2; */
+}
+
+.item-card > .img-container {
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;   
+    display: flex;
+    align-items: center;
+    justify-content: center
+    /* text-align: center; */
+}   
+
+.card-body {
+    /* background-color: #f0ad4e; */
+    background-color: #ADD8E6;
+}
+
+.card-title {
+    font-size: 2vh;
+}
+
+.card-text {
+    font-size: .75em;
+}
