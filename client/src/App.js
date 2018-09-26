@@ -8,7 +8,7 @@ import MainFooter from "./components/MainPage/Footer";
 import Register from "./components/Register";
 import Chat from "./components/Chat";
 import Listing from "./components/Listing";
-
+import PrivateRoute from "./components/PrivateRoute";
 
 class App extends Component {
   render() {
@@ -22,6 +22,7 @@ class App extends Component {
             <Route path="/register" component={Register} exact />
             <Route path="/chat" component={Chat} exact />
             <Route path="/listing" component={Listing} exact />
+            <PrivateRoute path="/chat" component={Chat} exact />
           </div>
         </Router>
         {/* <MainFooter /> */}
