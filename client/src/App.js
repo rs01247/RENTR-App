@@ -7,7 +7,7 @@ import PostBody from "./components/MainPage/PostBody"
 import MainFooter from "./components/MainPage/Footer"
 import Register from "./components/Register"
 import Chat from "./components/Chat/Chat"
-
+import PrivateRoute from "./components/PrivateRoute";
 
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/" component={PostBody} exact />
             <Route path="/login" component={Login} exact />
             <Route path="/register" component={Register} exact />
-            <Route path="/chat" component={Chat} exact />
+            <PrivateRoute path="/chat" component={Chat} exact />
             <MainFooter />
           </div>
         </Router>
