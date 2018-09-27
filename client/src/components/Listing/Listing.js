@@ -60,7 +60,6 @@ class Listing extends Component {
                                         <input type="text" className="form-control" id="item-image" name="image" value={this.state.image} onChange={this.onChange} placeholder="Item Image"></input>
                                     </div>
                                 </form>
-
                                 <button type="click" onClick={this.onClick} className="btn btn-primary">Post Listing</button>
                             </div>
                         </div>

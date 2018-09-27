@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const jwt = require("express-jwt")
 const routes = require("./api/routes");
 const authRoutes = require("./api/routes/auth.routes");
+// const itemRoutes = require("./api/routes/item.routes");
 const db = require("./api/models");
 
 const PORT = process.env.PORT || 3001;
@@ -16,7 +17,6 @@ const auth = jwt({
   secret: process.env.JWT_SECRET,
   userProperty: 'payload'
 });
-
 
 // HTML REQUEST LOGGER
 app.use(morgan("dev"))
@@ -29,25 +29,23 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-const router = express.Router();
-// SEND EVERY REQUEST TO REACT APP
-router.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-// SEND EVERY REQUEST TO REACT APP
-app.use("/", router)
+
+// ROUTING
+// app.use("/", router)
 app.use("/auth", authRoutes);
-app.use(auth);
-// ROUTING TO API FOLDER 
+// app.use("/item", itemRoutes);
+//app.use(auth);
 app.use("/api", routes);
 
-
-
+// // SEND EVERY REQUEST TO REACT APP
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/public/index.html"));
+//   // res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // CHANGE TO FORCE:FALSE BEFORE DEPLOYING
 db.Sequelize.sync({ force: false }).then(function () {
-    app.listen(PORT, function () {
-        console.log(`Listening to ${PORT}`);
-    });
+  app.listen(PORT, function () {
+    console.log(`Listening to ${PORT}`);
+  });
 });

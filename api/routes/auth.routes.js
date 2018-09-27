@@ -1,13 +1,13 @@
 const express = require("express");
-var models = require("../models");
-var jwt = require('jsonwebtoken');
-var helpers = require("./helpers/auth.helpers");
-var routeHelpers = require("./helpers/route.helper");
+const models = require("../models");
+const jwt = require('jsonwebtoken');
+const helpers = require("./helpers/auth.helpers");
+const routeHelpers = require("./helpers/route.helper");
 const router = express.Router();
 
 
 router.post("/login", function (req, res) {
-    var user = {
+    const user = {
         email: req.body.email,
         password: req.body.password
     }
@@ -19,7 +19,7 @@ router.post("/login", function (req, res) {
     })
         .then(function (resp) {
             if (helpers.checkIfValidPass(resp, user.password)) {
-                var expiry = new Date();
+                const expiry = new Date();
                 expiry.setDate(expiry.getDate() + 7);
 
                 res.json({
@@ -42,7 +42,7 @@ router.post("/login", function (req, res) {
 
 // Create a new example
 router.post("/register", function (req, res) {
-    var user = {
+    const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         location: req.body.location,

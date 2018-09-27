@@ -34,7 +34,7 @@ const Navbar = () => (
 
         <li className="nav-item active">
           <a className="nav-link" href="/">
-            <h1 id="title">P U B L I C</h1>
+            <h1 id="title">R E N T R</h1>
           </a>
         </li>
 
@@ -44,11 +44,11 @@ const Navbar = () => (
           </a>
         </li>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" href="/register" id="Register">
             <button type="button" className="btn btn-primary">Register</button>
           </a>
-        </li>
+        </li> */}
 
         <li className="nav-item">
           <a className="nav-link" href="/chat" id="Chat">
@@ -56,11 +56,11 @@ const Navbar = () => (
           </a>
         </li>
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" href="/listing" id="Listing">
             <button type="button" className="btn btn-primary">Listing</button>
           </a>
-        </li>
+        </li> */}
 
       </ul>
     </div>
