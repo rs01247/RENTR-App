@@ -12,9 +12,22 @@ const db = require("./api/models");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// const jwt = require("express-jwt")
 const auth = jwt({
   secret: process.env.JWT_SECRET,
   userProperty: 'payload'
+});
+app.use("/auth", authRoutes);
+app.get("/api", auth, routes);
+
+
+
+ // STATIC ASSETS WHEN PUSHED TO HEROKU
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 
@@ -25,28 +38,23 @@ app.use(morgan("dev"))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// STATIC ASSETS WHEN PUSHED TO HEROKU
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-const router = express.Router();
-// SEND EVERY REQUEST TO REACT APP
-router.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-// SEND EVERY REQUEST TO REACT APP
-app.use("/", router)
-app.use("/auth", authRoutes);
-app.use(auth);
-// ROUTING TO API FOLDER 
-app.use("/api", routes);
+// // STATIC ASSETS WHEN PUSHED TO HEROKU
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/public/index.html"));
+// });
+// // SEND EVERY REQUEST TO REACT APP
+// app.use("/auth", authRoutes);
+// app.use(auth);
+// app.use("/api", routes);
 
 
 
 
 // CHANGE TO FORCE:TRUE BEFORE DEPLOYING
-db.Sequelize.sync({ force: false }).then(function () {
+db.Sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {
         console.log(`Listening to ${PORT}`);
     });
