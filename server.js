@@ -53,8 +53,8 @@ app.use(bodyParser.json());
 
 
 
-// CHANGE TO FORCE:TRUE BEFORE DEPLOYING
-db.Sequelize.sync({ force: true }).then(function () {
+// CHANGE TO FORCE:FALSE BEFORE DEPLOYING
+db.Sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
         console.log(`Listening to ${PORT}`);
     });
