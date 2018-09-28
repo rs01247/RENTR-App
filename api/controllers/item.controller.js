@@ -4,9 +4,19 @@ module.exports = {
 
     // CREATE
     createItem: (req, res) => {
-        console.log(req.body);
+        console.log(req.payload);
+        const item = {
+            UserId: req.payload.userID,
+            itemName: req.body.itemName,
+            location: req.body.location,
+            description: req.body.description,
+            image: req.body.image,
+            date: req.body.date,
+            isAvailable: req.body.isAvailable
+        }
+
         db.Item.create(
-            req.body
+            item
         )
             .then((dbItem) => {
                 res.json(dbItem);
