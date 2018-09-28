@@ -45,7 +45,7 @@ class Listing extends Component {
                     <div className="login-form">
                         <div className="main-div">
                             <div className="panel">
-                                <h1 id="heading">List an Item</h1>
+                                <h2 id="heading">List an Item</h2>
                                 <form>
                                     <div className="form-group">
                                         <input type="text" className="form-control" id="item-name" name="itemName" value={this.state.itemName} onChange={this.onChange} placeholder="Name of Item"></input>

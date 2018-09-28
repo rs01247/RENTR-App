@@ -50,11 +50,11 @@ const Navbar = () => (
           </a>
         </li> */}
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" href="/chat" id="Chat">
             <button type="button" className="btn btn-primary">Chat</button>
           </a>
-        </li>
+        </li> */}
 
         {/* <li className="nav-item">
           <a className="nav-link" href="/listing" id="Listing">
