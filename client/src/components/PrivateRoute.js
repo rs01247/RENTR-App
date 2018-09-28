@@ -7,6 +7,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       {...rest}
       render={props => {
         const validToken = authHelpers.isValid()
+        console.log("Token is", validToken)
         if(!validToken) {
           authHelpers.logout();
           return (<Redirect

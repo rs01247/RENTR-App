@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Chat from "../Chat"
 import "./Item.css";
-import axios from "axios";
+import axios from "../../helpers/authenticated.axios";
 
 class Item extends Component {
     constructor(props) {

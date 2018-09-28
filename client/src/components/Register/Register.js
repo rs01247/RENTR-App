@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Register.css"
 import axios from "axios";
-import authHelpers from "../../helpers/auth.helpers";
 
 class Register extends Component {
     constructor(props) {
@@ -24,7 +23,7 @@ class Register extends Component {
     })
 
     submit(e) {
-        console.log("asd")
+        console.log("USER CREATED")
         e.preventDefault();
         axios.post("/auth/register", this.state)
             .then(function (resp) {
@@ -45,7 +44,7 @@ class Register extends Component {
                             <div className="main-div rounded">
                                 <div className="panel">
                                     <h2 id="heading">Register</h2>
-                                    <p style={{fontSize: "1em"}}>Please fill out your information</p>
+                                    <p style={{ fontSize: "1em" }}>Please fill out your information</p>
                                     <form>
                                         <div className="form-group">
                                             <input type="username" className="form-control" id="registerFirstname" name="firstName" value={this.state.firstName} onChange={this.onChange} placeholder="First Name"></input>

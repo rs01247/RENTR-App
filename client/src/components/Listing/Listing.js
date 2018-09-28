@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import axios from "../../helpers/authenticated.axios";
 import "./Listing.css";
 
 class Listing extends Component {
@@ -22,12 +22,12 @@ class Listing extends Component {
 
     onClick = e => {
         e.preventDefault();
-        axios.post("api/item/", {
-            location: this.state.location,
-            itemName: this.state.itemName,
-            image: this.state.image,
-            description: this.state.description
-        })
+            axios.post("api/item", {
+                location: this.state.location,
+                itemName: this.state.itemName,
+                image: this.state.image,
+                description: this.state.description
+            })
             .then(res => {
                 window.location = "/"
                 console.log(res)
@@ -51,7 +51,7 @@ class Listing extends Component {
                                         <input type="text" className="form-control" id="item-name" name="itemName" value={this.state.itemName} onChange={this.onChange} placeholder="Name of Item"></input>
                                     </div>
                                     <div className="form-group">
-                                        <textarea class="form-control" className="form-control" id="item-description" name="description" value={this.state.description} onChange={this.onChange} placeholder="Description" rows="2"></textarea>
+                                        <textarea className="form-control" className="form-control" id="item-description" name="description" value={this.state.description} onChange={this.onChange} placeholder="Description" rows="2"></textarea>
                                     </div>
                                     <div className="form-group">
                                         <input type="text" className="form-control" id="item-location" name="location" value={this.state.location} onChange={this.onChange} placeholder="Your Zip Code"></input>

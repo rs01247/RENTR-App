@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UserSelect from "../UserSelect";
 import Recent from "../Recent";
 import Itembox from "../Itembox";
-import axios from "axios";
+import axios from "../../../helpers/authenticated.axios"
 import "./PostBody.css"
 
 class PostBody extends Component {
