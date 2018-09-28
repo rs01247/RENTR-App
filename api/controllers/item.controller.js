@@ -37,25 +37,33 @@ module.exports = {
 
     // FIND ALL
     findAllItem: (req, res) => {
-        db.Item.findAll({})
-            .then((dbItem) => {
-                res.json(dbItem);
-            });
+        console.log(req.query)
+
+        db.Item.findAll({
+            where: req.query,
+        })
+        .then((dbItem) => {
+            res.json(dbItem);
+        })
     },
 
     //FIND ALL ITEM BY USER
     findItemByUser: (req, res) => {
-        const item = {
-            itemId: req.body.itemId,
-            ownerId: req.body.ownerId
-        }
-        db.Item.findAll(item, {
-            include: [
-                {
-                    association: db.Item.associations.User
-                }
+
+        db.Item.findAll({
+            where: {
+                UserId: req.payload.userId
+            },
+            includes: [
+                { model: db.User }
             ]
-        });
+        })
+            .then((dbItem) => {
+                res.json(dbItem);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     },
 
     // UPDATE
