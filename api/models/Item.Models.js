@@ -37,18 +37,6 @@ module.exports = (sequelize, DataTypes) => {
 
 //NOT SURE WHY THIS DOESN'T WORK
 
-        // Item.hasMany(models.Transaction, {
-        //     foriegnKey: {
-        //         allowNull: true
-        //     }
-        // });
-
-        // Item.hasMany(models.Request, {
-        //     foriegnKey: {
-        //         allowNull: true
-        //     }
-        // });
-
         // ITEM-USER ASSOCIATION
         Item.belongsTo(models.User, {
             foriegnKey: {
