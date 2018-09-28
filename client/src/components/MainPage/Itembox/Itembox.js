@@ -5,7 +5,7 @@ const Itembox = props => (
 
     <div className="item-card card rounded border-0">
         <div className="img-container">
-            <a href={`/item/:${props.id}`}>
+            <a href={`api/item/${props.id}`}>
                 <img className="card-img-top user-img" src={props.image} alt="Item Image" />
             </a>
         </div>

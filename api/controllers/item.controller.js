@@ -4,9 +4,19 @@ module.exports = {
 
     // CREATE
     createItem: (req, res) => {
-        console.log(req.body);
+        console.log(req.payload);
+        const item = {
+            UserId: req.payload.userID,
+            itemName: req.body.itemName,
+            location: req.body.location,
+            description: req.body.description,
+            image: req.body.image,
+            date: req.body.date,
+            isAvailable: req.body.isAvailable
+        }
+
         db.Item.create(
-            req.body
+            item
         )
             .then((dbItem) => {
                 res.json(dbItem);
@@ -27,25 +37,33 @@ module.exports = {
 
     // FIND ALL
     findAllItem: (req, res) => {
-        db.Item.findAll({})
-            .then((dbItem) => {
-                res.json(dbItem);
-            });
+        console.log(req.query)
+
+        db.Item.findAll({
+            where: req.query,
+        })
+        .then((dbItem) => {
+            res.json(dbItem);
+        })
     },
 
     //FIND ALL ITEM BY USER
     findItemByUser: (req, res) => {
-        const item = {
-            itemId: req.body.itemId,
-            ownerId: req.body.ownerId
-        }
-        db.Item.findAll(item, {
-            include: [
-                {
-                    association: db.Item.associations.User
-                }
+
+        db.Item.findAll({
+            where: {
+                UserId: req.payload.userId
+            },
+            includes: [
+                { model: db.User }
             ]
-        });
+        })
+            .then((dbItem) => {
+                res.json(dbItem);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     },
 
     // UPDATE

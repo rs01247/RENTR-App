@@ -1,4 +1,14 @@
 export default {
+    getToken() {
+        console.log("being called")
+        if(this.isValid()) {
+            return localStorage.getItem("token");
+        }
+        else {
+            this.logout();
+            return null
+        }
+    },
     saveToken(token) {
         localStorage.setItem("token", token)
     },
