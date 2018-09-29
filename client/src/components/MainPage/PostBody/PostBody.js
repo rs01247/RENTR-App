@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import UserSelect from "../UserSelect";
 import Recent from "../Recent";
 import Itembox from "../Itembox";
+import MainNav from "../Navbar";
 import axios from "../../../helpers/authenticated.axios"
 import "./PostBody.css"
 
@@ -29,23 +30,26 @@ class PostBody extends Component {
     render() {
         console.log(this.state.data)
         return (
-            <div className="container">
-                <UserSelect />
-                <Recent>
-                    {this.state.data.map(item => (
-                        <Itembox
-                            location={item.location}
-                            itemName={item.itemName}
-                            image={item.image}
-                            description={item.description}
-                            date={item.date}
-                            isAvailable={item.isAvailable}
-                            createdAt={item.createdAt}
-                            key={item.id}
-                            id={item.id}
-                        />
-                    ))}
-                </Recent>
+            <div>
+                <MainNav />
+                <div className="container">
+                    <UserSelect />
+                    <Recent>
+                        {this.state.data.map(item => (
+                            <Itembox
+                                location={item.location}
+                                itemName={item.itemName}
+                                image={item.image}
+                                description={item.description}
+                                date={item.date}
+                                isAvailable={item.isAvailable}
+                                createdAt={item.createdAt}
+                                key={item.id}
+                                id={item.id}
+                            />
+                        ))}
+                    </Recent>
+                </div>
             </div>
         )
     }
