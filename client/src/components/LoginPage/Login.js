@@ -11,7 +11,6 @@ class Login extends Component {
             email: "",
             password: "",
 
-
         }
     }
 
@@ -27,7 +26,7 @@ class Login extends Component {
             .then(function (resp) {
                 console.log(resp);
                 authHelpers.saveToken(resp.data.token)
-                window.location = "/"
+                window.location = "/main"
             })
             .catch(function (err) {
                 console.error(err);
