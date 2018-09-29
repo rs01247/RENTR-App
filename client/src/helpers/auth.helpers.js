@@ -21,6 +21,9 @@ export default {
             const payload = this.parseToken(token);
             return payload.exp > Date.now()/1000; 
         }
+        else {
+            return false
+        }
     },
     parseToken(token) {
         return JSON.parse(window.atob(token.split('.')[1]));
