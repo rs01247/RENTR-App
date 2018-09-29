@@ -12,6 +12,7 @@ import Chat from "./components/Chat";
 import Listing from "./components/Listing";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from './components/ProfilePage/Profile';
+import YourList from "./components/YourList";
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
             {/* <PrivateRoute path="/user/listing" component={Chat} exact /> */}
             <PrivateRoute path="/chat" component={Chat} exact />
             <PrivateRoute path="/profile" component={Profile} />
+            <PrivateRoute path="/api/user/:id" component={YourList} />
           </div>
         </Router>
         {/* <MainFooter /> */}

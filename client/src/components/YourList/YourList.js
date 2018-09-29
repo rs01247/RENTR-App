@@ -10,4 +10,22 @@ class YourList extends Component {
             data: []
         }
     }
+
+    componentDidMount () {
+        this.displayUser();
+    }
+
+    displayUser () {
+
+    }
+
+    render () {
+        return (
+            <div>
+                User Page
+            </div>
+        )
+    }
 }
+
+export default YourList;
