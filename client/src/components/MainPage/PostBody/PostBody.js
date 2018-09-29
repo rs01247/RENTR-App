@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UserSelect from "../UserSelect";
 import Recent from "../Recent";
 import Itembox from "../Itembox";
-import axios from "axios";
+import axios from "../../../helpers/authenticated.axios"
 import "./PostBody.css"
 
 class PostBody extends Component {
@@ -18,7 +18,7 @@ class PostBody extends Component {
     displayData() {
         axios.get("/api/item")
             .then((res) => {
-                this.setState({ data: res.data })
+                this.setState({ data: res.data || [] })
                 console.log(res.data);
             })
             .catch((err) => {
@@ -27,6 +27,7 @@ class PostBody extends Component {
     }
 
     render() {
+        console.log(this.state.data)
         return (
             <div className="container">
                 <UserSelect />
@@ -48,7 +49,6 @@ class PostBody extends Component {
             </div>
         )
     }
-
 }
 
 export default PostBody 

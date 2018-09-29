@@ -17,7 +17,6 @@ const auth = jwt({
   userProperty: 'payload'
 });
 
-
 // HTML REQUEST LOGGER
 app.use(morgan("dev"))
 
@@ -25,29 +24,27 @@ app.use(morgan("dev"))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+// ROUTING
+app.use("/auth", authRoutes);
+app.use("/api", auth, routes);
+
+
 // STATIC ASSETS WHEN PUSHED TO HEROKU
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-const router = express.Router();
+
+
 // SEND EVERY REQUEST TO REACT APP
-router.get("*", function(req, res) {
+app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
   // res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-// SEND EVERY REQUEST TO REACT APP
-app.use("/", router)
-app.use("/auth", authRoutes);
-app.use(auth);
-// ROUTING TO API FOLDER 
-app.use("/api", routes);
-
-
-
 
 // CHANGE TO FORCE:FALSE BEFORE DEPLOYING
 db.Sequelize.sync({ force: false }).then(function () {
-    app.listen(PORT, function () {
-        console.log(`Listening to ${PORT}`);
-    });
+  app.listen(PORT, function () {
+    console.log(`Listening to ${PORT}`);
+  });
 });

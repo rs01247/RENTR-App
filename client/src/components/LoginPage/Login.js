@@ -22,7 +22,6 @@ class Login extends Component {
         })
     }
     submit(e) {
-        console.log("asd")
         e.preventDefault();
         axios.post("/auth/login", this.state)
             .then(function (resp) {
@@ -40,14 +39,14 @@ class Login extends Component {
             <div className="login-form">
                 <div className="container">
                     <div className="login-form">
-                        <div className="main-div">
+                        <div className="main-div rounded">
                             <div className="panel">
                             <form>
                                 <h2>Login</h2>
-                                <p>Enter your UserName and Password to Login!</p>
+                                <p style={{fontSize: "1em"}}>Please enter your credentials</p>
 
                                 <div className="form-group">
-                                    <input type="email" className="form-control" name="email" placeholder="asd@asd.net..." onChange={this.onChange.bind(this)} />
+                                    <input type="email" className="form-control" name="email" placeholder="Email" onChange={this.onChange.bind(this)} />
                                 </div>
 
 
@@ -57,7 +56,7 @@ class Login extends Component {
 
                                 <button type="submit" className="btn btn-primary" onClick={this.submit.bind(this)}>Login</button>
 
-                                <span id="register-button">Not Registered? Click <a href="/register">Here</a></span>
+                                <p id="register-button">Not Registered? Click <a href="/register">Here</a></p>
                             </form>
                             </div>
                         </div>

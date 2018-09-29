@@ -2,15 +2,15 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {
         firstName: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         lastName: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         location: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 len: [5]
             }
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         hash: DataTypes.STRING,
         email: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             unique: true,
             required: true,
             validate: {
@@ -28,11 +28,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         phoneNumber: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
         },
         userName: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         }
     });
 
@@ -56,10 +56,6 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'cascade'
         });
 
-        // User.hasMany(models.Request, {
-        //     as: "Owner",
-        //     onDelete: 'cascade'
-        // });
         // USER HAS MANY ITEMS THROUGH TRANSACTION
         User.hasMany(models.Transaction, {
             onDelete: 'cascade'
