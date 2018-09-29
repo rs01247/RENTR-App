@@ -22,7 +22,9 @@
     "mysql2": "^1.6.1",
     "npm": "^6.4.1",
     "path": "^0.12.7",
+    "react-stripe-elements": "^2.0.1",
     "sequelize": "^4.23.0",
+    "stripe": "^6.12.1",
     "yarn": "^1.9.4"
   },
   "devDependencies": {

@@ -9,6 +9,7 @@ import Landing from "./components/Landing"
 import Register from "./components/Register";
 import Item from "./components/Item";
 import Chat from "./components/Chat";
+import Stripe from "./components/Stripe/Stripe"
 import Listing from "./components/Listing";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from './components/ProfilePage/Profile';
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/" component={Landing} exact />
             <PrivateRoute path="/main" component={PostBody} exact />
             <Route path="/login" component={Login} exact />
+            <Route path="/stripe" component={Stripe} exact />
             <Route path="/register" component={Register} exact />
             <PrivateRoute path="/api/item/:id" component={Item} exact />
             <PrivateRoute path="/listing" component={Listing} exact />

@@ -84,7 +84,13 @@ export default class Navbar extends Component {
 
             {this.renderLogoutButton()}
 
-            {/* <li className="nav-item">
+        <li className="nav-item">
+          <a className="nav-link" href="/stripe" id="Stripe">
+            <button type="button" className="btn btn-primary">Stripe</button>
+          </a>
+        </li>
+
+        {/* <li className="nav-item">
           <a className="nav-link" href="/register" id="Register">
             <button type="button" className="btn btn-primary">Register</button>
           </a>
