@@ -28,9 +28,11 @@ class Login extends Component {
             .then(function (resp) {
                 console.log(resp);
                 authHelpers.saveToken(resp.data.token)
+                console.log('it worked!')
             })
             .catch(function (err) {
                 console.error(err);
+                console.log("it failed!")
             })
     }
     render() {

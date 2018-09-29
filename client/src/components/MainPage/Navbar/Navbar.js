@@ -62,6 +62,12 @@ const Navbar = () => (
           </a>
         </li>
 
+        <li className="nav-item">
+          <a className="nav-link" href="/profile" id="Listing">
+            <button type="button" className="btn btn-primary">Profile</button>
+          </a>
+        </li>
+
       </ul>
     </div>
   </nav>
