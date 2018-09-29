@@ -5,6 +5,7 @@ import Login from "./components/LoginPage";
 import MainNav from "./components/MainPage/Navbar";
 import PostBody from "./components/MainPage/PostBody";
 // import MainFooter from "./components/MainPage/Footer";
+import Landing from "./components/Landing"
 import Register from "./components/Register";
 import Item from "./components/Item";
 import Chat from "./components/Chat";
@@ -20,7 +21,8 @@ class App extends Component {
         <Router>
           <div>
             {/* <Route path="/" component={Home} exact /> */}
-            <Route path="/" component={PostBody} exact />
+            <Route path="/" component={Landing} exact />
+            <PrivateRoute path="/main" component={PostBody} exact />
             <Route path="/login" component={Login} exact />
             <Route path="/register" component={Register} exact />
             <PrivateRoute path="/api/item/:id" component={Item} exact />

@@ -1,9 +1,40 @@
-import React from "react";
-import "./Navbar.css";
+import React, { Component } from 'react'
+import authHelpers from "../../../helpers/auth.helpers"
+export default class Navbar extends Component {
 
-const Navbar = () => (
+  constructor(props) {
+    super(props);
 
-  <nav className="navbar navbar-expand-lg p-3 bg-transparent text-white">
+    this.state = {
+      loggedIn: authHelpers.isValid()
+    }
+  };
+  logout() {
+    authHelpers.logout();
+    this.setState({loggedIn: false})
+    console.log("logged out")
+  }
+  renderLogoutButton() {
+    if(this.state.loggedIn) {
+      return (
+      <li className="nav-item">
+      <a className="nav-link" href="/listing" id="Listing" onClick = {this.logout} >
+        <button type="button" className="btn btn-primary">logout</button>
+      </a>
+    </li>)
+    }
+    else {
+
+    }
+  }
+
+
+  render() {
+    console.log(this.state)
+    return (
+      
+
+        <nav className="navbar navbar-expand-lg p-3 bg-transparent text-white">
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -34,7 +65,7 @@ const Navbar = () => (
 
         <li className="nav-item active">
           <a className="nav-link" href="/">
-            <h1 id="title">R E N T R</h1>
+            <h1 id="title">P U B L I C</h1>
           </a>
         </li>
 
@@ -44,23 +75,25 @@ const Navbar = () => (
           </a>
         </li>
 
-        {/* <li className="nav-item">
+        <li className="nav-item">
           <a className="nav-link" href="/register" id="Register">
             <button type="button" className="btn btn-primary">Register</button>
           </a>
-        </li> */}
+        </li>
 
-        {/* <li className="nav-item">
+        <li className="nav-item">
           <a className="nav-link" href="/chat" id="Chat">
             <button type="button" className="btn btn-primary">Chat</button>
           </a>
-        </li> */}
+        </li>
 
-        {/* <li className="nav-item">
+        <li className="nav-item">
           <a className="nav-link" href="/listing" id="Listing">
             <button type="button" className="btn btn-primary">Listing</button>
           </a>
-        </li> */}
+        </li>
+        
+        {this.renderLogoutButton()}
 
         <li className="nav-item">
           <a className="nav-link" href="/profile" id="Listing">
@@ -71,7 +104,8 @@ const Navbar = () => (
       </ul>
     </div>
   </nav>
-);
-
-export default Navbar;
-
+        
+      
+    )
+  }
+}
