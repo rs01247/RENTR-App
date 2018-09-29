@@ -2,25 +2,28 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./components/LoginPage";
-import MainNav from "./components/MainPage/Navbar";
+// import MainNav from "./components/MainPage/Navbar";
 import PostBody from "./components/MainPage/PostBody";
-import MainFooter from "./components/MainPage/Footer";
+// import MainFooter from "./components/MainPage/Footer";
+import Landing from "./components/Landing"
 import Register from "./components/Register";
 import Item from "./components/Item";
 import Chat from "./components/Chat";
 import Stripe from "./components/Stripe/Stripe"
 import Listing from "./components/Listing";
 import PrivateRoute from "./components/PrivateRoute";
+import Profile from './components/ProfilePage/Profile';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <MainNav />
+        {/* <MainNav /> */}
         <Router>
           <div>
             {/* <Route path="/" component={Home} exact /> */}
-            <Route path="/" component={PostBody} exact />
+            <Route path="/" component={Landing} exact />
+            <PrivateRoute path="/main" component={PostBody} exact />
             <Route path="/login" component={Login} exact />
             <Route path="/stripe" component={Stripe} exact />
             <Route path="/register" component={Register} exact />
@@ -28,6 +31,7 @@ class App extends Component {
             <PrivateRoute path="/listing" component={Listing} exact />
             {/* <PrivateRoute path="/user/listing" component={Chat} exact /> */}
             <PrivateRoute path="/chat" component={Chat} exact />
+            <PrivateRoute path="/profile" component={Profile} />
           </div>
         </Router>
         {/* <MainFooter /> */}
