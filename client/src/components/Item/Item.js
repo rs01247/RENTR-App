@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Chat from "../Chat"
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
+import GMap from "./MapContainer";
+import MapDisplay from "./MapDisplay";
 
 class Item extends Component {
     constructor(props) {
@@ -49,7 +51,7 @@ class Item extends Component {
                             </div>
                         </div>
                         <div className="col-4 border border-secondary">
-                            {/* THIS IS WHERE GOOGLE MAPS CAN GO */}
+                            <GMap />
                         </div>
                     </div>
                     <div className="row mt-4">
