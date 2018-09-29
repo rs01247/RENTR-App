@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Chat.css';
 import firebase from "./firebase.js";
-class App extends Component {
+
+class Chat extends Component {
   constructor() {
     super();
     this.state = {
@@ -67,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Chat;
