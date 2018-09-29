@@ -3,8 +3,9 @@ import UserSelect from "../UserSelect";
 import Recent from "../Recent";
 import Itembox from "../Itembox";
 import MainNav from "../Navbar";
-import axios from "../../../helpers/authenticated.axios"
-import "./PostBody.css"
+import axios from "../../../helpers/authenticated.axios";
+import authHelpers from "../../../helpers/auth.helpers";
+import "./PostBody.css";
 
 class PostBody extends Component {
 
@@ -28,12 +29,18 @@ class PostBody extends Component {
     }
 
     render() {
+        const token =authHelpers.getToken();
+        const payload = authHelpers.parseToken(token);
+        console.log(payload);
+        // payload.userId
         console.log(this.state.data)
         return (
             <div>
                 <MainNav />
                 <div className="container">
-                    <UserSelect />
+                    <UserSelect 
+                        userID = {payload.userID}
+                    />
                     <Recent>
                         {this.state.data.map(item => (
                             <Itembox
@@ -50,7 +57,7 @@ class PostBody extends Component {
                         ))}
                     </Recent>
                 </div>
-            </div>
+            </div>  
         )
     }
 }
