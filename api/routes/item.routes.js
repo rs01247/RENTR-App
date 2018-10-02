@@ -7,6 +7,8 @@ const ctrl = require('../controllers/item.controller')
 router.post("/", ctrl.createItem);
 /**GET ONE Item from Item table */
 router.get("/:id", ctrl.findOneItem);
+// GET ALL ITEMS BY USER ID
+router.get("/user/:id", ctrl.findItemByUser);
 /**GET ALL Item data from Item table */
 router.get("/", ctrl.findAllItem);
 /**UPDATE Item WHERE Item is email FROM Item table */
