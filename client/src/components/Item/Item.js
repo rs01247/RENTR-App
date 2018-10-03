@@ -1,7 +1,12 @@
+
 import React, { Component } from "react";
+import Geocode from "react-geocode";
+// import gmp from "google-map-react";
 import Chat from "../Chat"
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
+
+Geocode.setApiKey("AIzaSyA0-hwLFqBPHf5yphF-d0fymZKTv2vWNkU");
 
 class Item extends Component {
     constructor(props) {
@@ -9,23 +14,36 @@ class Item extends Component {
 
         this.state = {
             data: [],
-            id: this.props.match.params.id
+            id: this.props.match.params.id,
+            location: this.props.match.params.location
 
         }
+        
     }
 
+    
     componentDidMount() {
-        console.log(this.state.id);
+        console.log("We did mount Item");
         axios.get(`/api/item/${this.state.id}`)
             .then((res) => {
-                this.setState({ data: res.data })
-                console.log(res.data);
+                console.log("the res is ", res);
+                this.setState({ data: res.data})
+                Geocode.fromAddress(this.state.data.location).then(
+                    response => {
+                        console.log("location " + this.state.data.location);
+                      const { lat, lng } = response.results[0].geometry.location;
+                      console.log("lattitude and longitude is " + lat, lng);
+                      this.setState({location: response })
+                    
+                }, );
             })
             .catch((err) => {
                 console.error(err);
             })
+           
     }
 
+    
     render() {
         console.log(this.state.data)
         return (
