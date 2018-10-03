@@ -72,10 +72,9 @@ class YourList extends Component {
                                             {item.id}
                                         </th>
                                         <td>
-                                            {/* <a href=`/item/${item.id}`> */}
+                                            <a href="/">
                                                 <img className="user-item" src={item.image} alt={item.itemName} />  
-                                            {/* </a> */}
-
+                                            </a>
                                         </td>
                                         <td>{item.itemName}</td>
                                         <td>{item.description}</td>

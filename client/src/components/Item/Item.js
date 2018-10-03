@@ -12,7 +12,6 @@ class Item extends Component {
             data: [],
             userData: [],
             id: this.props.match.params.id
-
         }
     }
 
@@ -57,19 +56,19 @@ class Item extends Component {
                         </div>
                         <div className="row">
                             <div className="col-4">
-                                <div className="row">
+                                <div className="item-div row">
                                     <img className="item-img" src={this.state.data.image} />
                                 </div>
                             </div>
                             <div className="col-4 p-1">
-                                <div className="row">
-                                    <h4>Listed by {this.state.userData.userName}</h4>
-                                    <p>{this.state.userData.createdAt}</p>
+                                <div className="item-div row">
+                                    <h3>Listed by {this.state.userData.userName}</h3>
+                                    <h5>{this.state.userData.createdAt}</h5>
                                 </div>
-                                <div className="row">
+                                <div className="item-div row">
                                     <p style={{ fontSize: "1rem" }}>{`Available to Rent in ${this.state.data.location}`}</p>
                                 </div>
-                                <div className="row">
+                                <div className="item-div row">
                                     <p>{this.state.data.description}</p>
                                 </div>
                             </div>
