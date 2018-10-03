@@ -1,12 +1,13 @@
-.container-fluid, .jumbotron {
-    padding: 0;
-}
-
 #landing-title {
     /* margin-top: 10vh; */
     font-size: 10vh;
-    color: #FFFFFF;
+    color: #f0f0f0;
     text-align: center;
+    text-shadow:
+    -1px -1px 0 #d3d3d3,
+    1px -1px 0 #d3d3d3,
+    -1px 1px 0 #d3d3d3,
+    1px 1px 0 #d3d3d3;
 } 
 
 #landing-div {
