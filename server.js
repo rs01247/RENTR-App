@@ -43,7 +43,7 @@ app.get("*", function(req, res) {
 });
 
 // CHANGE TO FORCE:FALSE BEFORE DEPLOYING
-db.Sequelize.sync({ force: false }).then(function () {
+db.Sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {
     console.log(`Listening to ${PORT}`);
   });

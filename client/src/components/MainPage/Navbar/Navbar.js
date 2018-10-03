@@ -71,6 +71,12 @@ export default class Navbar extends Component {
             </li>
 
             <li className="nav-item">
+             <a className="nav-link" href="/profile" id="Profile">
+               <button type="button" className="btn btn-primary">Profile</button>
+             </a>
+           </li>
+
+            <li className="nav-item">
               <a className="nav-link" href="/login" id="Login">
                 <button type="button" className="btn btn-primary">Login</button>
               </a>
@@ -94,7 +100,6 @@ export default class Navbar extends Component {
           <a className="nav-link" href="/listing" id="Listing">
             <button type="button" className="btn btn-primary">Listing</button>
           </a>
-<<<<<<< HEAD
         </li> */}
 
           </ul>
@@ -102,23 +107,6 @@ export default class Navbar extends Component {
       </nav>
 
 
-=======
-        </li>
-        
-        {this.renderLogoutButton()}
-
-        <li className="nav-item">
-          <a className="nav-link" href="/profile" id="Listing">
-            <button type="button" className="btn btn-primary">Profile</button>
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
-        
-      
->>>>>>> 98202fdd415576f8205b4aeaede54b3aa562dfdf
     )
   }
 }
