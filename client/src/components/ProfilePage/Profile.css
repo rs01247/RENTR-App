@@ -1,0 +1,28 @@
+/* img{
+    border-radius: 50%;
+    position: relative;
+    right: 2px;
+    top: 9px;
+    height: 180px;
+    width: 150px
+}
+
+.row{
+    background: white;
+} */
+
+#submit-button{
+    position: relative;
+    top: 15px;
+    right: 10px;
+}
+
+#card-body{
+    background: white;
+}
+
+/* 
+#empty-space{
+    position: relative;
+    bottom: 500px;
+} */

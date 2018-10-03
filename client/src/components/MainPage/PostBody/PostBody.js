@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import UserSelect from "../UserSelect";
 import Recent from "../Recent";
 import Itembox from "../Itembox";
-import axios from "../../../helpers/authenticated.axios"
-import "./PostBody.css"
+import MainNav from "../Navbar";
+import axios from "../../../helpers/authenticated.axios";
+import authHelpers from "../../../helpers/auth.helpers";
+import "./PostBody.css";
 
 class PostBody extends Component {
 
@@ -27,26 +29,35 @@ class PostBody extends Component {
     }
 
     render() {
+        const token =authHelpers.getToken();
+        const payload = authHelpers.parseToken(token);
+        console.log(payload);
+        // payload.userId
         console.log(this.state.data)
         return (
-            <div className="container">
-                <UserSelect />
-                <Recent>
-                    {this.state.data.map(item => (
-                        <Itembox
-                            location={item.location}
-                            itemName={item.itemName}
-                            image={item.image}
-                            description={item.description}
-                            date={item.date}
-                            isAvailable={item.isAvailable}
-                            createdAt={item.createdAt}
-                            key={item.id}
-                            id={item.id}
-                        />
-                    ))}
-                </Recent>
-            </div>
+            <div>
+                <MainNav />
+                <div className="container">
+                    <UserSelect 
+                        userID = {payload.userID}
+                    />
+                    <Recent>
+                        {this.state.data.map(item => (
+                            <Itembox
+                                location={item.location}
+                                itemName={item.itemName}
+                                image={item.image}
+                                description={item.description}
+                                date={item.date}
+                                isAvailable={item.isAvailable}
+                                createdAt={item.createdAt}
+                                key={item.id}
+                                id={item.id}
+                            />
+                        ))}
+                    </Recent>
+                </div>
+            </div>  
         )
     }
 }

@@ -1,3 +1,9 @@
+.main {
+    /* height: 100% !important; */
+    /* width: 100% !important; */
+}
+
+
 #item-name {
     font-family: 'Raleway', sans-serif;
 }
@@ -5,4 +11,8 @@
 .item-img {
     width: 80%;
     height: 80%;
+}
+
+.item-div {
+    padding: 15px;
 }

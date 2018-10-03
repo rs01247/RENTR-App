@@ -1,0 +1,18 @@
+#landing-title {
+    /* margin-top: 10vh; */
+    font-size: 10vh;
+    color: #f0f0f0;
+    text-align: center;
+    text-shadow:
+    -1px -1px 0 #d3d3d3,
+    1px -1px 0 #d3d3d3,
+    -1px 1px 0 #d3d3d3,
+    1px 1px 0 #d3d3d3;
+} 
+
+#landing-div {
+    height: 350px;
+    margin-top: 15vh;
+    background-image: url("https://cdn-images-1.medium.com/max/2000/1*d5divWiseEv1NuOoRMmm9A.jpeg");
+    /* background-image: url("https://cdn-images-1.medium.com/max/1600/1*DTkbYDqroiSzJ3k5c_x5Zg.jpeg") */
+}

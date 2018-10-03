@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Register.css"
 import axios from "axios";
+// import authHelpers from "../../helpers/auth.helpers";
 
 class Register extends Component {
     constructor(props) {
