@@ -10,7 +10,9 @@ class Listing extends Component {
             location: "",
             itemName: "",
             image: "",
-            description: ""
+            description: "",
+            date: "",
+            isAvailable: ""
         }
     }
 
@@ -22,14 +24,16 @@ class Listing extends Component {
 
     onClick = e => {
         e.preventDefault();
-            axios.post("api/item", {
-                location: this.state.location,
-                itemName: this.state.itemName,
-                image: this.state.image,
-                description: this.state.description
-            })
+        axios.post("api/item", {
+            location: this.state.location,
+            itemName: this.state.itemName,
+            image: this.state.image,
+            description: this.state.description,
+            date: this.state.date,
+            isAvailable: this.state.isAvailable
+        })
             .then(res => {
-                window.location = "/"
+                window.location = "/main"
                 console.log(res)
             })
             .catch(e => {
