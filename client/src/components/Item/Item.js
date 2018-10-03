@@ -3,6 +3,11 @@ import Chat from "../Chat"
 import MainNav from "../MainPage/Navbar";
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
+import Map from "./Map.js";
+import Geocode from "react-geocode";
+
+
+Geocode.setApiKey("AIzaSyA0-hwLFqBPHf5yphF-d0fymZKTv2vWNkU");
 
 class Item extends Component {
     constructor(props) {
@@ -11,7 +16,10 @@ class Item extends Component {
         this.state = {
             data: [],
             userData: [],
-            id: this.props.match.params.id
+            id: this.props.match.params.id,
+            location: this.props.match.params.location,
+            lat: this.props.match.params.lat,
+            lng: this.props.match.params.lng
         }
     }
 
@@ -24,8 +32,9 @@ class Item extends Component {
         console.log(this.state.id);
         axios.get(`/api/item/${this.state.id}`)
             .then((res) => {
-                this.setState({ data: res.data })
+                this.setState({ data: res.data})
                 this.displayUser();
+                this.convertZip();
                 console.log(res.data);
             })
             .catch((err) => {
@@ -43,6 +52,32 @@ class Item extends Component {
                 console.error(err);
             })
     }
+
+    convertZip() {
+        axios.get(`/api/user/${this.state.data.UserId}`)
+            .then((res) => {
+                this.setState({ location: res.data.location })
+                console.log(this.state.location);
+        Geocode.fromAddress(this.state.location).then(
+            response => {
+              const { lat, lng } = response.results[0].geometry.location;
+              console.log(lat, lng);
+              this.setState({lat: lat});
+              this.setState({lng: lng});
+              console.log("lat: " + this.state.lat);
+              console.log("lng: " + this.state.lng)
+            },
+            error => {
+              console.error(error);
+            }
+          );
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+    }
+    
+
 
     render() {
         console.log(this.state.data)
@@ -73,7 +108,7 @@ class Item extends Component {
                                 </div>
                             </div>
                             <div className="col-4 border border-secondary">
-                                {/* THIS IS WHERE GOOGLE MAPS CAN GO */}
+                                <Map lat = {this.state.lat} lng = {this.state.lng}/>
                             </div>
                         </div>
                         <div className="row mt-4">
