@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports = {
 
     // CREATE
-    createUser:  (req, res) => {
+    createUser: (req, res) => {
         console.log(req.body);
         db.User.create(
             req.body
@@ -15,18 +15,24 @@ module.exports = {
 
     // READ
     findOneUser: (req, res) => {
-        db.User.findOne({
+        db.User.findAll({
             where: {
-                id: req.params.id
-            }
+                id: req.payload.userId
+            },
+            includes: [
+                { model: db.User }
+            ]
         })
             .then((dbUser) => {
                 res.json(dbUser);
-            });
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     },
-    
+
     // FIND ALL
-    findAllUser:  (req, res) => {
+    findAllUser: (req, res) => {
         db.User.findAll({})
             .then((dbUser) => {
                 res.json(dbUser);
@@ -34,16 +40,24 @@ module.exports = {
     },
 
     // UPDATE
-    updateUser:  (req, res) => {
+    updateUser: (req, res) => {
+        console.log(req)
         db.User.update(req.body,
             {
                 where: {
                     id: req.params.id
-                }
+                },
+                includes: [
+                    { model: db.User }
+                ]
             })
             .then((dbUser) => {
                 res.json(dbUser);
-            });
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+
     },
 
     // DELETE

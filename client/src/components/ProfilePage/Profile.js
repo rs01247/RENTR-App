@@ -3,38 +3,80 @@ import "./Profile.css";
 import axios from "../../helpers/authenticated.axios"
 
 class Profile extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            data: []
-        }
+  
+    constructor(props){
+        super(props)
     }
 
-    onChange(e) {
+    state = {
+        userId: null,
+        firstName: "",
+        lastName: "",
+        location: "",
+        Email: "",
+        phoneNumber: ""
+    }
+
+    onChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-
-    //fix this later. 
-    submit(e) {
-        console.log("it works!")
-        e.preventDefault(e)
-        // axios.get("auth/regsiter/", this.state)
-        //     .then(function (resp) {
-        //         console.log(resp)
-        //         this.setState({events: resp.data})
-        //             .catch(function (err) {
-        //                 console.error(err);
-        //             })
-
-        //         })
+    grabData() {
+        axios.get("api/user/")
+            .then((res) => {
+                console.log("meme",res.data);
+                this.setState({
+                    userId:res.data[0].id,
+                    firstName: res.data[0].firstName,
+                    lastName: res.data[0].lastName,
+                    email: res.data[0].email,
+                    location: res.data[0].location,
+                    phoneNumber: res.data[0].phoneNumber
+                })                
+                console.log(res.data[0].id)
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     }
 
+    submit(e) {
+        e.preventDefault(e);
+        console.log("submitting...")
+        axios.put("/api/user/" + this.state.userId, 
+        {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            location: this.state.location,
+            phoneNumber: this.state.phoneNumber   
+        }
+        )
+        .then((res) => {
+            this.setState(
+                {
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                email: res.data.email,
+                location: res.data.location,
+                phoneNumber: res.data.phoneNumber,
+            })
+        
+            console.log(res.data)
 
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+    //put only when submit is run  
+    //axios.put 
+
+    componentDidMount() {
+        this.grabData()
+    }
 
     render() {
         return (
@@ -44,30 +86,21 @@ class Profile extends Component {
                         <div className="col-sm-3">
                             <h1>UserName</h1>
                         </div>
-
                         <div className="col-sm-9">
                             <h3>Your Profile</h3>
+                            <ul className="nav nav-tabs">
+                                <li className="active"><a data-toggle="tab" href="edit-profile">Edit</a></li>
+                            </ul>
+                            <a data-toggle="tab" href="/profile">Profile</a>
                         </div>
-
-
-
-
                     </div>
-
                     <div className="row">
-
                         <div className="col-sm-3">
                             <img src={"./sexy-dane.jpg"} alt="img-placeholder"></img>
                             <br></br>
-
-                            <button type="file" onClick={this.submit.bind(this)}>Submit New Photo...</button>
+                            <button type="submit" onClick={this.submit.bind(this)}>Submit New Photo...</button>
                             <br></br>
-
-
-
                         </div>
-
-
                         <div className="col-sm-9">
                             <div className="card">
                                 <div className="card-body">
@@ -76,85 +109,75 @@ class Profile extends Component {
                                         <div className="col-md-12">
                                             <h4>
                                                 First Name
-                                                <br></br>
-                                                <input type="firstName" className="form-control" name="firstName" placeholder="First Name" onSubmit={this.submit.bind(this)} />
-
-
+                                                <input type="text" 
+                                                className="form-control" 
+                                                name="firstName" 
+                                                placeholder="First Name" 
+                                                value={this.state.firstName} 
+                                                onChange={this.onChange} />
                                             </h4>
                                             <hr></hr>
                                         </div>
                                     </div>
-
-
                                     <div className="row">
                                         <div className="col-md-12">
                                             <h4>
                                                 Last Name
-                                                <br></br>
-                                                <input type="lastName" className="form-control" name="lastName" placeholder="Last Name" onSubmit={this.submit.bind(this)} />
-
-
+                                                <input type="text" 
+                                                className="form-control" 
+                                                name="lastName" 
+                                                placeholder="Last Name" 
+                                                value={this.state.lastName} 
+                                                onChange={this.onChange} />
                                             </h4>
                                             <hr></hr>
                                         </div>
                                     </div>
-
-
-
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
-                                                Email
-                                                <br></br>
-                                                <input type="Email" className="form-control" name="Email" placeholder="Email" onSubmit={this.submit.bind(this)} />
-
-
-                                            </h4>
-                                            <hr></hr>
-                                        </div>
-                                    </div>
-
 
                                     <div className="row">
                                         <div className="col-md-12">
                                             <h4>
                                                 Location
-                                                <br></br>
-                                                <input type="location" className="form-control" name="location" placeholder="Location" onSubmit={this.submit.bind(this)} />
-
-
+                                                <input type="text" 
+                                                className="form-control" 
+                                                name="location" 
+                                                placeholder="Location" 
+                                                value={this.state.location} 
+                                                onChange={this.onChange} />
                                             </h4>
                                             <hr></hr>
                                         </div>
                                     </div>
-
-
-
-
-
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <h4>
+                                                Email
+                                                <input type="text" 
+                                                className="form-control" 
+                                                name="email" 
+                                                placeholder="email" 
+                                                value={this.state.email} 
+                                                onChange={this.onChange} />
+                                            </h4>
+                                            <hr></hr>
+                                        </div>
+                                    </div>
                                     <div className="row">
                                         <div className="col-md-12">
                                             <h4>
                                                 Phone Number
-                                                <br></br>
-                                                <input type="phoneNumber" className="form-control" name="phoneNumber" placeholder="Phone Number" onSubmit={this.submit.bind(this)} />
-
-
+                                                <input type="text" 
+                                                className="form-control" 
+                                                name="phoneNumber" 
+                                                placeholder="Phone Number" 
+                                                value={this.state.phoneNumber} 
+                                                onChange={this.onChange} />
                                             </h4>
                                             <hr></hr>
                                         </div>
                                     </div>
-
-
-
-
-
-
-
                                 </div>
                             </div>
-
-
                         </div>
 
                     </div>
@@ -170,13 +193,9 @@ class Profile extends Component {
                     </div>
                 </div>
 
-
-
                 {/* do not pass here */}
 
-
             </div>
-
         )
     }
 }
