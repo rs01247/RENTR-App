@@ -2,32 +2,32 @@ module.exports = (sequelize, DataTypes) => {
     const Item = sequelize.define("Item", {
         location: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
             validation: {
                 len: [5]
             }
         },
         itemName: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: false,
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: true
+            allowNull: false
         },
         image: {
             type: DataTypes.TEXT,
-            allowNull: true
+            allowNull: false
         },
         date: {
             type: DataTypes.DATE,
-            default: Date.now,
-            allowNull: true 
+            defaultValue: Date.now,
+            allowNull: false 
         },
         isAvailable: {
             type: DataTypes.BOOLEAN,
-            allowNull: true,
-            default: true
+            allowNull: false,
+            defaultValue: true
         }
     });
 

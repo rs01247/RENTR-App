@@ -6,10 +6,12 @@ import axios from "../../helpers/authenticated.axios";
 import Map from "./Map.js";
 import Geocode from "react-geocode";
 
-
 Geocode.setApiKey("AIzaSyA0-hwLFqBPHf5yphF-d0fymZKTv2vWNkU");
+import authHelpers from "../../helpers/auth.helpers"
+// import emailer from "../../helpers/email.helpers"
 
 class Item extends Component {
+
     constructor(props) {
         super(props);
 
@@ -26,6 +28,27 @@ class Item extends Component {
     componentDidMount() {
         this.displayItem();
         // this.displayUser();
+    }
+
+    submit(e) {
+        e.preventDefault();
+  
+        const token = authHelpers.getToken();
+        const payload = authHelpers.parseToken(token)
+        
+        axios.post("/api/email/send", {
+            to: this.state.userData.email,
+            from: payload.email,
+            subject: "A RENTR would like your item!",
+            text: "Please view your listings page on RENTR. Thank you",
+            html: "<strong>Please view your listings page on RENTR. Thank you</strong>"
+        })
+        .then((res) => {
+            console.log("SEND")
+        })
+        .catch((err) => {
+            console.error(err);
+        })
     }
 
     displayItem() {
@@ -80,7 +103,6 @@ class Item extends Component {
 
 
     render() {
-        console.log(this.state.data)
         return (
             <div>
                 <MainNav />
@@ -88,6 +110,7 @@ class Item extends Component {
                     <div className="jumbotron bg-white shadow-lg">
                         <div className="row mb-3">
                             <h2 id="item-name">{this.state.data.itemName}</h2>
+                            <button type="click" onClick={this.submit.bind(this)} className="btn btn-warning ml-4 justify-content-end">REQUEST ITEM</button>
                         </div>
                         <div className="row">
                             <div className="col-4">
