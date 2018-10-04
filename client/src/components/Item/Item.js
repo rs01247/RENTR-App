@@ -4,11 +4,7 @@ import MainNav from "../MainPage/Navbar";
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
 import authHelpers from "../../helpers/auth.helpers"
-
-// import sgMail from "@sendgrid/mail";
 // import emailer from "../../helpers/email.helpers"
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 
 
 class Item extends Component {
@@ -40,7 +36,6 @@ class Item extends Component {
             subject: "A RENTR would like your item!",
             text: "Please view your listings page on RENTR. Thank you",
             html: "<strong>Please view your listings page on RENTR. Thank you</strong>"
-            // THIS IS WHERE YOU'LL PASS OFF THE USER EMAIL AND YOUR EMAIL TO SEND INTO THE EMAIL ROUTE
         })
         .then((res) => {
             console.log("SEND")
