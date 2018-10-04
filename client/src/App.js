@@ -11,8 +11,8 @@ import Item from "./components/Item";
 import Chat from "./components/Chat";
 import Listing from "./components/Listing";
 import PrivateRoute from "./components/PrivateRoute";
-import Profile from './components/ProfilePage/Profile';
-import Edit from './components/EditProfile/Edit';
+import Profile from './components/Profile/Profile';
+import EditProfile from './components/EditProfie/EditProfile';
 
 class App extends Component {
   render() {
@@ -30,8 +30,8 @@ class App extends Component {
             <PrivateRoute path="/listing" component={Listing} exact />
             {/* <PrivateRoute path="/user/listing" component={Chat} exact /> */}
             <PrivateRoute path="/chat" component={Chat} exact />
+            <Route path="/edit-profile" component={EditProfile} />
             <Route path="/profile" component={Profile} />
-            <Route path="/edit-profile" component={Edit} />
           </div>
         </Router>
         {/* <MainFooter /> */}

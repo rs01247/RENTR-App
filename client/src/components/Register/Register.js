@@ -68,11 +68,11 @@ class Register extends Component {
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="username" className="form-control" id="registerUsername" name="userName" value={this.state.userName} onChange={this.onChange} placeholder="UserName"></input>
+                                            <input type="username" className="form-control" id="registerUsername" name="userName" value={this.state.userName    }onChange={this.onChange} placeholder="UserName"></input>
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="password" className="form-control" id="regsiterPassword" name="password" value={this.state.password} onChange={this.onChange} placeholder="Password"></input>
+                                            <input type="password" className="form-control" id="regjsterPassword" name="password" value={this.state.password} onChange={this.onChange} placeholder="Password"></input>
                                         </div>
 
                                         {/* submit or click */}

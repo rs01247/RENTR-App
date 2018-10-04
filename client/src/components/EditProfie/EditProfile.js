@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Profile.css";
+import "./EditProfile.css";
 import axios from "../../helpers/authenticated.axios"
 
-class Profile extends Component {
+class EditProfile extends Component {
     constructor(props){
         super(props)
     }
@@ -28,7 +28,7 @@ class Profile extends Component {
     grabData() {
         axios.get("api/user/")
             .then((res) => {
-                console.log("meme",res.data);
+                console.log(res.data);
                 this.setState({
                     userId:res.data[0].id,
                     firstName: res.data[0].firstName,
@@ -96,11 +96,11 @@ class Profile extends Component {
                         </div>
 
                         <div className="col-sm-9">
-                            <h3>Your Profile</h3>
+                        <h3></h3>
                             <ul className="nav nav-tabs">
-                                <li className="active"><a data-toggle="tab" href="edit-profile">Edit</a></li>
+                            <button class="btn btn-primary btn-md text-white" id="edit-button"><li className="active"><a data-toggle="tab" href="edit-profile">Edit</a></li></button>
                             </ul>
-                            <a data-toggle="tab" href="/profile">Profile</a>
+                            <button class="btn btn-primary btn-md text-white" id="profile-button"><a data-toggle="tab" href="/profile">Profile</a></button>
 
                         </div>
 
@@ -109,7 +109,7 @@ class Profile extends Component {
                     <div className="row">
 
                         <div className="col-sm-3">
-                            <img src={"./sexy-dane.jpg"} alt="img-placeholder"></img>
+                            <img src={"./sexy-dane.jpg"} alt="img-placeholder" id="img"></img>
                             <br></br>
 
                             <button type="submit" onClick={this.submit.bind(this)}>Submit New Photo...</button>
@@ -238,5 +238,5 @@ class Profile extends Component {
 
 
 
-export default Profile
+export default EditProfile
 
