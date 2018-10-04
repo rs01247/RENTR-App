@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import authHelpers from "../../../helpers/auth.helpers"
+import "./Navbar.css"
+
 export default class Navbar extends Component {
 
   constructor(props) {
@@ -11,17 +13,17 @@ export default class Navbar extends Component {
   };
   logout() {
     authHelpers.logout();
-    this.setState({loggedIn: false})
+    this.setState({ loggedIn: false })
     console.log("logged out")
   }
   renderLogoutButton() {
-    if(this.state.loggedIn) {
+    if (this.state.loggedIn) {
       return (
-      <li className="nav-item">
-      <a className="nav-link" href="/listing" id="Listing" onClick = {this.logout} >
-        <button type="button" className="btn btn-primary">logout</button>
-      </a>
-    </li>)
+        <li className="nav-item">
+          <a className="nav-link" href="/" id="Listing" onClick={this.logout} >
+            <button type="button" className="btn btn-primary">Logout</button>
+          </a>
+        </li>)
     }
     else {
 
@@ -32,17 +34,17 @@ export default class Navbar extends Component {
   render() {
     console.log(this.state)
     return (
-      
 
-        <nav className="navbar navbar-expand-lg p-3 bg-transparent text-white">
 
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
+      <nav className="navbar navbar-expand-lg p-3 bg-transparent text-white">
 
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav mr-auto">
-        {/* <li className="nav-item active">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            {/* <li className="nav-item active">
           <a className="nav-link" href="/">Home <span className="sr-only" id="navbar-home">(current)</span></a>
         </li>
         <div>
@@ -62,20 +64,33 @@ export default class Navbar extends Component {
           <a className="nav-link disabled" id="navbar-disabled" href="/">Disabled</a>
         </li> */}
 
+            <li className="nav-item active">
+              <a className="nav-link" href="/main">
+                <h1 id="title">R E N T R</h1>
+              </a>
+            </li>
 
-        <li className="nav-item active">
-          <a className="nav-link" href="/">
-            <h1 id="title">P U B L I C</h1>
+            <li className="nav-item">
+              <a className="nav-link" href="/profile" id="Profile">
+                <button type="button" className="btn btn-primary">Profile</button>
+              </a>
+            </li>
+
+            {/* <li className="nav-item">
+              <a className="nav-link" href="/login" id="Login">
+                <button type="button" className="btn btn-primary">Login</button>
+              </a>
+            </li> */}
+
+            {this.renderLogoutButton()}
+
+        <li className="nav-item">
+          <a className="nav-link" href="/stripe" id="Stripe">
+            <button type="button" className="btn btn-primary">Stripe</button>
           </a>
         </li>
 
-        <li className="nav-item">
-          <a className="nav-link" href="/login" id="Login">
-            <button type="button" className="btn btn-primary">Login</button>
-          </a>
-        </li>
-
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" href="/register" id="Register">
             <button type="button" className="btn btn-primary">Register</button>
           </a>
@@ -91,21 +106,13 @@ export default class Navbar extends Component {
           <a className="nav-link" href="/listing" id="Listing">
             <button type="button" className="btn btn-primary">Listing</button>
           </a>
-        </li>
-        
-        {this.renderLogoutButton()}
+        </li> */}
 
-        <li className="nav-item">
-          <a className="nav-link" href="/profile" id="Listing">
-            <button type="button" className="btn btn-primary">Profile</button>
-          </a>
-        </li>
+          </ul>
+        </div>
+      </nav>
 
-      </ul>
-    </div>
-  </nav>
-        
-      
+
     )
   }
 }

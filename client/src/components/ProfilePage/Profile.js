@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import "./Profile.css";
-import axios from "axios"
+import axios from "../../helpers/authenticated.axios"
 
 class Profile extends Component {
- 
 
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            data: []
+        }
+    }
 
     onChange(e) {
         this.setState({
@@ -27,9 +32,9 @@ class Profile extends Component {
         //             })
 
         //         })
-            }
-        
-  
+    }
+
+
 
     render() {
         return (
