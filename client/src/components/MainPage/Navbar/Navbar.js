@@ -71,10 +71,10 @@ export default class Navbar extends Component {
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/profile" id="Profile">
-                <button type="button" className="btn btn-primary">Profile</button>
-              </a>
-            </li>
+             <a className="nav-link" href="/profile" id="Profile">
+               <button type="button" className="btn btn-primary">Profile</button>
+             </a>
+           </li>
 
             {/* <li className="nav-item">
               <a className="nav-link" href="/login" id="Login">
