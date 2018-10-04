@@ -3,6 +3,7 @@ import "./Profile.css";
 import axios from "../../helpers/authenticated.axios"
 
 class Profile extends Component {
+  
     constructor(props){
         super(props)
     }
@@ -14,7 +15,6 @@ class Profile extends Component {
         location: "",
         Email: "",
         phoneNumber: ""
-
     }
 
     onChange = e => {
@@ -22,8 +22,6 @@ class Profile extends Component {
             [e.target.name]: e.target.value
         })
     }
-
-
 
     grabData() {
         axios.get("api/user/")
@@ -73,18 +71,12 @@ class Profile extends Component {
             console.log(err)
         })
     }
-
-
-
     //put only when submit is run  
     //axios.put 
 
-
     componentDidMount() {
         this.grabData()
-    
     }
-
 
     render() {
         return (
@@ -94,29 +86,20 @@ class Profile extends Component {
                         <div className="col-sm-3">
                             <h1>UserName</h1>
                         </div>
-
                         <div className="col-sm-9">
                             <h3>Your Profile</h3>
                             <ul className="nav nav-tabs">
                                 <li className="active"><a data-toggle="tab" href="edit-profile">Edit</a></li>
                             </ul>
                             <a data-toggle="tab" href="/profile">Profile</a>
-
                         </div>
-
                     </div>
-
                     <div className="row">
-
                         <div className="col-sm-3">
                             <img src={"./sexy-dane.jpg"} alt="img-placeholder"></img>
                             <br></br>
-
                             <button type="submit" onClick={this.submit.bind(this)}>Submit New Photo...</button>
                             <br></br>
-
-
-
                         </div>
                         <div className="col-sm-9">
                             <div className="card">
@@ -133,7 +116,6 @@ class Profile extends Component {
                                                 value={this.state.firstName} 
                                                 onChange={this.onChange} />
                                             </h4>
-
                                             <hr></hr>
                                         </div>
                                     </div>
@@ -162,8 +144,6 @@ class Profile extends Component {
                                                 placeholder="Location" 
                                                 value={this.state.location} 
                                                 onChange={this.onChange} />
-
-
                                             </h4>
                                             <hr></hr>
                                         </div>
@@ -192,16 +172,12 @@ class Profile extends Component {
                                                 placeholder="Phone Number" 
                                                 value={this.state.phoneNumber} 
                                                 onChange={this.onChange} />
-
-
                                             </h4>
                                             <hr></hr>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
 
                     </div>
@@ -217,21 +193,9 @@ class Profile extends Component {
                     </div>
                 </div>
 
-
-
-
-
                 {/* do not pass here */}
 
-
             </div>
-
-            
-
-
-
-
-
         )
     }
 }

@@ -52,7 +52,7 @@ module.exports = {
 
         db.Item.findAll({
             where: {
-                UserId: req.payload.userId
+                UserId: req.payload.userID
             },
             includes: [
                 { model: db.User }

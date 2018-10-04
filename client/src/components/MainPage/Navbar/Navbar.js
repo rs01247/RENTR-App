@@ -20,7 +20,7 @@ export default class Navbar extends Component {
     if (this.state.loggedIn) {
       return (
         <li className="nav-item">
-          <a className="nav-link" href="/listing" id="Listing" onClick={this.logout} >
+          <a className="nav-link" href="/" id="Listing" onClick={this.logout} >
             <button type="button" className="btn btn-primary">Logout</button>
           </a>
         </li>)
@@ -65,7 +65,7 @@ export default class Navbar extends Component {
         </li> */}
 
             <li className="nav-item active">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/main">
                 <h1 id="title">R E N T R</h1>
               </a>
             </li>
@@ -76,15 +76,21 @@ export default class Navbar extends Component {
              </a>
            </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="/login" id="Login">
                 <button type="button" className="btn btn-primary">Login</button>
               </a>
-            </li>
+            </li> */}
 
             {this.renderLogoutButton()}
 
-            {/* <li className="nav-item">
+        <li className="nav-item">
+          <a className="nav-link" href="/stripe" id="Stripe">
+            <button type="button" className="btn btn-primary">Stripe</button>
+          </a>
+        </li>
+
+        {/* <li className="nav-item">
           <a className="nav-link" href="/register" id="Register">
             <button type="button" className="btn btn-primary">Register</button>
           </a>
