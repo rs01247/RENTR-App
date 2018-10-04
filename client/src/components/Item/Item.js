@@ -9,10 +9,10 @@ import authHelpers from "../../helpers/auth.helpers"
 // import emailer from "../../helpers/email.helpers"
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const token = authHelpers.getToken();
-const payload = authHelpers.parseToken(token)
+
 
 class Item extends Component {
+
     constructor(props) {
         super(props);
 
@@ -28,8 +28,12 @@ class Item extends Component {
         // this.displayUser();
     }
 
-    onClick = e => {
+    submit(e) {
         e.preventDefault();
+  
+        const token = authHelpers.getToken();
+        const payload = authHelpers.parseToken(token)
+        
         axios.post("/api/email/send", {
             to: this.state.userData.email,
             from: payload.email,
@@ -37,6 +41,12 @@ class Item extends Component {
             text: "Please view your listings page on RENTR. Thank you",
             html: "<strong>Please view your listings page on RENTR. Thank you</strong>"
             // THIS IS WHERE YOU'LL PASS OFF THE USER EMAIL AND YOUR EMAIL TO SEND INTO THE EMAIL ROUTE
+        })
+        .then((res) => {
+            console.log("SEND")
+        })
+        .catch((err) => {
+            console.error(err);
         })
     }
 
@@ -72,7 +82,7 @@ class Item extends Component {
                     <div className="jumbotron bg-white shadow-lg">
                         <div className="row mb-3">
                             <h2 id="item-name">{this.state.data.itemName}</h2>
-                            <button type="click" onClick={this.onClick} className="btn btn-warning ml-4 justify-content-end">REQUEST ITEM</button>
+                            <button type="click" onClick={this.submit.bind(this)} className="btn btn-warning ml-4 justify-content-end">REQUEST ITEM</button>
                         </div>
                         <div className="row">
                             <div className="col-4">
