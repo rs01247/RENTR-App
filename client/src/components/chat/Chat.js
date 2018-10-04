@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import './Chat.css';
 import authHelpers from "../../helpers/auth.helpers";
 import firebase from "./firebase.js";
+import axios from "../../helpers/authenticated.axios"
+
+
 
 class Chat extends Component {
 
   constructor(props) {
+
     const token = authHelpers.getToken();
     const payload = authHelpers.parseToken(token)
-
+    
     super(props);
     this.state = {
       chatName: payload.email,
       chatMsg: "",
       messages: [],
-      id: props.id
+      id: props.id,
+      // userData: []
     }
   }
 
@@ -39,6 +44,17 @@ class Chat extends Component {
       return <p>{msg.userName}: {msg.msg} <small>{this.toFormattedDate(msg.createdAt)}</small></p>
     })
   }
+
+  // displayUser() {
+  //   axios.get(`/api/user/${payload.id}`)
+  //     .then((res) => {
+  //       this.setState({ userData: res.data })
+  //       console.log(this.state.userData)
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     })
+  // }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value })
 
@@ -80,6 +96,7 @@ class Chat extends Component {
       console.log(messageArr);
       this.setState({ messages: messageArr });
     })
+    // this.displayUser();
   }
 }
 

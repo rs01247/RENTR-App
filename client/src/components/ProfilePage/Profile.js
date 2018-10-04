@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import MainNav from "../MainPage/Navbar"
 import "./Profile.css";
 import axios from "../../helpers/authenticated.axios"
 
 class Profile extends Component {
-  
-    constructor(props){
+
+    constructor(props) {
         super(props)
     }
 
@@ -14,7 +15,8 @@ class Profile extends Component {
         lastName: "",
         location: "",
         Email: "",
-        phoneNumber: ""
+        phoneNumber: "",
+        userName: ""
     }
 
     onChange = e => {
@@ -26,15 +28,16 @@ class Profile extends Component {
     grabData() {
         axios.get("api/user/")
             .then((res) => {
-                console.log("meme",res.data);
+                console.log("meme", res.data);
                 this.setState({
-                    userId:res.data[0].id,
+                    userId: res.data[0].id,
                     firstName: res.data[0].firstName,
                     lastName: res.data[0].lastName,
                     email: res.data[0].email,
                     location: res.data[0].location,
-                    phoneNumber: res.data[0].phoneNumber
-                })                
+                    phoneNumber: res.data[0].phoneNumber,
+                    userName: res.data[0].userName
+                })
                 console.log(res.data[0].id)
             })
             .catch((err) => {
@@ -45,31 +48,33 @@ class Profile extends Component {
     submit(e) {
         e.preventDefault(e);
         console.log("submitting...")
-        axios.put("/api/user/" + this.state.userId, 
-        {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            email: this.state.email,
-            location: this.state.location,
-            phoneNumber: this.state.phoneNumber   
-        }
+        axios.put("/api/user/" + this.state.userId,
+            {
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                location: this.state.location,
+                phoneNumber: this.state.phoneNumber,
+                userName: this.state.userName
+            }
         )
-        .then((res) => {
-            this.setState(
-                {
-                firstName: res.data.firstName,
-                lastName: res.data.lastName,
-                email: res.data.email,
-                location: res.data.location,
-                phoneNumber: res.data.phoneNumber,
-            })
-        
-            console.log(res.data)
+            .then((res) => {
+                this.setState(
+                    {
+                        firstName: res.data.firstName,
+                        lastName: res.data.lastName,
+                        email: res.data.email,
+                        location: res.data.location,
+                        phoneNumber: res.data.phoneNumber,
+                        userName: this.state.userName
+                    })
 
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+                console.log(res.data)
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
     //put only when submit is run  
     //axios.put 
@@ -81,13 +86,14 @@ class Profile extends Component {
     render() {
         return (
             <div>
+                <MainNav />
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-3">
-                            <h1>UserName</h1>
+                            <h1>{this.state.userName}</h1>
                         </div>
                         <div className="col-sm-9">
-                            <h3>Your Profile</h3>
+                            <h3>{this.state.firstName}'s Profile</h3>
                             <ul className="nav nav-tabs">
                                 <li className="active"><a data-toggle="tab" href="edit-profile">Edit</a></li>
                             </ul>
@@ -96,86 +102,62 @@ class Profile extends Component {
                     </div>
                     <div className="row">
                         <div className="col-sm-3">
-                            <img src={"./sexy-dane.jpg"} alt="img-placeholder"></img>
+                            <img src={""} alt="img-placeholder"></img>
                             <br></br>
-                            <button type="submit" onClick={this.submit.bind(this)}>Submit New Photo...</button>
+                            <button className="btn btn-primary btn-sm" type="submit" onClick={this.submit.bind(this)}>Change Photo</button>
                             <br></br>
                         </div>
                         <div className="col-sm-9">
                             <div className="card">
                                 <div className="card-body">
-
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
-                                                First Name
-                                                <input type="text" 
-                                                className="form-control" 
-                                                name="firstName" 
-                                                placeholder="First Name" 
-                                                value={this.state.firstName} 
+                                    <form>
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text"
+                                                className="form-control"
+                                                name="firstName"
+                                                placeholder="First Name"
+                                                value={this.state.firstName}
                                                 onChange={this.onChange} />
-                                            </h4>
-                                            <hr></hr>
                                         </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
-                                                Last Name
-                                                <input type="text" 
-                                                className="form-control" 
-                                                name="lastName" 
-                                                placeholder="Last Name" 
-                                                value={this.state.lastName} 
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text"
+                                                className="form-control"
+                                                name="lastName"
+                                                placeholder="Last Name"
+                                                value={this.state.lastName}
                                                 onChange={this.onChange} />
-                                            </h4>
-                                            <hr></hr>
                                         </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
-                                                Location
-                                                <input type="text" 
-                                                className="form-control" 
-                                                name="location" 
-                                                placeholder="Location" 
-                                                value={this.state.location} 
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text"
+                                                className="form-control"
+                                                name="location"
+                                                placeholder="Location"
+                                                value={this.state.location}
                                                 onChange={this.onChange} />
-                                            </h4>
-                                            <hr></hr>
                                         </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
-                                                Email
-                                                <input type="text" 
-                                                className="form-control" 
-                                                name="email" 
-                                                placeholder="email" 
-                                                value={this.state.email} 
+                                        <div class="form-group">
+                                            <label>Email address</label>
+                                            <input type="email"
+                                                aria-describedby="emailHelp"
+                                                className="form-control"
+                                                name="email"
+                                                placeholder="email"
+                                                value={this.state.email}
                                                 onChange={this.onChange} />
-                                            </h4>
-                                            <hr></hr>
                                         </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
-                                                Phone Number
-                                                <input type="text" 
-                                                className="form-control" 
-                                                name="phoneNumber" 
-                                                placeholder="Phone Number" 
-                                                value={this.state.phoneNumber} 
+                                        <div class="form-group">
+                                            <label>Phone Number</label>
+                                            <input type="text"
+                                                className="form-control"
+                                                name="phoneNumber"
+                                                placeholder="Phone Number"
+                                                value={this.state.phoneNumber}
                                                 onChange={this.onChange} />
-                                            </h4>
-                                            <hr></hr>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
