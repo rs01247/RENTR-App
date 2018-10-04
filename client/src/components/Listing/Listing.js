@@ -12,7 +12,7 @@ class Listing extends Component {
             image: "",
             description: "",
             date: "",
-            isAvailable: ""
+            isAvailable: true
         }
     }
 

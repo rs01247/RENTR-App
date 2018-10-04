@@ -3,6 +3,14 @@ import Chat from "../Chat"
 import MainNav from "../MainPage/Navbar";
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
+import authHelpers from "../../helpers/auth.helpers"
+
+// import sgMail from "@sendgrid/mail";
+// import emailer from "../../helpers/email.helpers"
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+const token = authHelpers.getToken();
+const payload = authHelpers.parseToken(token)
 
 class Item extends Component {
     constructor(props) {
@@ -18,6 +26,18 @@ class Item extends Component {
     componentDidMount() {
         this.displayItem();
         // this.displayUser();
+    }
+
+    onClick = e => {
+        e.preventDefault();
+        axios.post("/api/email/send", {
+            to: this.state.userData.email,
+            from: payload.email,
+            subject: "A RENTR would like your item!",
+            text: "Please view your listings page on RENTR. Thank you",
+            html: "<strong>Please view your listings page on RENTR. Thank you</strong>"
+            // THIS IS WHERE YOU'LL PASS OFF THE USER EMAIL AND YOUR EMAIL TO SEND INTO THE EMAIL ROUTE
+        })
     }
 
     displayItem() {
@@ -45,7 +65,6 @@ class Item extends Component {
     }
 
     render() {
-        console.log(this.state.data)
         return (
             <div>
                 <MainNav />
@@ -53,6 +72,7 @@ class Item extends Component {
                     <div className="jumbotron bg-white shadow-lg">
                         <div className="row mb-3">
                             <h2 id="item-name">{this.state.data.itemName}</h2>
+                            <button type="click" onClick={this.onClick} className="btn btn-warning ml-4 justify-content-end">REQUEST ITEM</button>
                         </div>
                         <div className="row">
                             <div className="col-4">

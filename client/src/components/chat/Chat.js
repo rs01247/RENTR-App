@@ -4,7 +4,7 @@ import authHelpers from "../../helpers/auth.helpers";
 import firebase from "./firebase.js";
 
 class Chat extends Component {
-  
+
   constructor(props) {
     const token = authHelpers.getToken();
     const payload = authHelpers.parseToken(token)
@@ -43,15 +43,16 @@ class Chat extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    console.log(this.state.id)
     return (
       <div>
         <div>
-          <input placeholder="User Name..." 
+          <input
+            style={{ width: "16rem" }}
+            placeholder="User Name..."
             name="chatName"
             value={this.state.chatName}
-            // onChange={this.onChange} 
-            />
+          // onChange={this.onChange} 
+          />
         </div>
         <div>
           {this.formatMessages()}
@@ -68,7 +69,7 @@ class Chat extends Component {
       </div>
     );
   }
-  
+
   componentDidMount() {
     firebase.database().ref().on("value", (snapshot) => {
       const messages = snapshot.val();
