@@ -97,42 +97,46 @@ class Profile extends Component {
                                     <div className="row">
                                         <div className="col-md-12">
                                             <h4>
-                                              {this.state.firstName}
+                                          First Name:
                                             </h4>
+                                            {this.state.firstName}
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                    <div className="col-md-12">
+                                            <h4>
+                                            Last Name: 
+                                            </h4>
+                                            {this.state.lastName}
+                                            <hr></hr>
+                                        </div>
+                                    </div>
 
-                                            <hr></hr>
-                                        </div>
-                                    </div>
                                     <div className="row">
-                                        <div className="col-md-12">
+                                    <div className="col-md-12">
                                             <h4>
-                                               {this.state.lastName}
+                                            Location: 
                                             </h4>
+                                            {this.state.location}
                                             <hr></hr>
                                         </div>
                                     </div>
-
                                     <div className="row">
-                                        <div className="col-md-12">
+                                    <div className="col-md-12">
                                             <h4>
-                                             {this.state.location}
+                                            Email: 
                                             </h4>
-                                            <hr></hr>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <h4>
                                             {this.state.email}
-                                            </h4>
                                             <hr></hr>
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-12">
+                                    <div className="col-md-12">
                                             <h4>
-                                                {this.state.phoneNumber}
+                                            Phone Number: 
                                             </h4>
+                                            {this.state.phoneNumber}
                                             <hr></hr>
                                         </div>
                                     </div>
