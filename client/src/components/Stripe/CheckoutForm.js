@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
+import "./Stripe.css";
 
 class CheckoutForm extends Component {
     constructor(props) {
@@ -25,7 +26,9 @@ class CheckoutForm extends Component {
     return (
       <div className="checkout">
         <p>Please provide us with your credit card number, expiration date, and cvc code.</p>
+        <div className="cardElement">
         <CardElement />
+        </div>
         <button onClick={this.submit}>Send</button>
       </div>
     );
