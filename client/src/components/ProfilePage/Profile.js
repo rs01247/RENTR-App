@@ -94,10 +94,10 @@ class Profile extends Component {
                         </div>
                         <div className="col-sm-9">
                             <h3>{this.state.firstName}'s Profile</h3>
-                            <ul className="nav nav-tabs">
+                            {/* <ul className="nav nav-tabs">
                                 <li className="active"><a data-toggle="tab" href="edit-profile">Edit</a></li>
                             </ul>
-                            <a data-toggle="tab" href="/profile">Profile</a>
+                            <a data-toggle="tab" href="/profile">Profile</a> */}
                         </div>
                     </div>
                     <div className="row">

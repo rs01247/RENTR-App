@@ -1,0 +1,11 @@
+#stripe {
+    border-style: inset;
+}
+
+.checkout {
+    border-style: outset;
+}
+
+.cardElement {
+    border-style: inset;
+}

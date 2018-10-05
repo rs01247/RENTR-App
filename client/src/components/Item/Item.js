@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chat from "../Chat"
+import Stripe from "../Stripe/Stripe"
 import MainNav from "../MainPage/Navbar";
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
@@ -138,9 +139,15 @@ class Item extends Component {
                             </div>
                         </div>
                         <div className="row mt-4">
-                            <Chat
-                                key={this.state.id}
-                                id={this.state.userData.id} />
+                            <div className="col-6">
+                                <Chat
+                                    key={this.state.id}
+                                    id={this.state.userData.id} />
+                            </div>
+                            <div className="col-6 mt-3">
+                                <Stripe />
+                            </div>
+
                         </div>
                     </div>
                 </div>
