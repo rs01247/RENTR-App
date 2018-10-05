@@ -147,10 +147,6 @@ class Item extends Component {
                             <div className="col-6 mt-3">
                                 <Stripe />
                             </div>
-
-                        </div>
-                        <div className="row mt-4">
-                            <Stripe />
                         </div>
                     </div>
                 </div>
