@@ -1,8 +1,8 @@
-var crypto = require('crypto');
+const crypto = require('crypto');
 /**
  * 
  */
-var authenticationHelpers = {
+const authenticationHelpers = {
     getSalt() {
         return crypto.randomBytes(16).toString('hex');
     },
