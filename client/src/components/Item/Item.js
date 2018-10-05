@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chat from "../Chat"
+import Stripe from "../Stripe/Stripe"
 import MainNav from "../MainPage/Navbar";
 import "./Item.css";
 import axios from "../../helpers/authenticated.axios";
@@ -80,6 +81,9 @@ class Item extends Component {
                             <Chat
                                 key={this.state.id}
                                 id={this.state.userData.id} />
+                        </div>
+                        <div className="row mt-4">
+                            <Stripe />
                         </div>
                     </div>
                 </div>

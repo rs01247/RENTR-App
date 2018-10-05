@@ -27,6 +27,7 @@ class Chat extends Component {
       createdAt: firebase.database.ServerValue.TIMESTAMP
     }
     firebase.database().ref().push(chatObj);
+    this.setState({chatMsg: ""})
   }
 
   toFormattedDate = timestamp => {
