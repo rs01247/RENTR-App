@@ -7,7 +7,7 @@ import PostBody from "./components/MainPage/PostBody";
 import Landing from "./components/Landing"
 import Register from "./components/Register";
 import Item from "./components/Item";
-import Chat from "./components/Chat/Chat";
+// import Chat from "./components/Chat";
 import Listing from "./components/Listing";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from './components/ProfilePage/Profile';
@@ -26,8 +26,7 @@ class App extends Component {
             <Route path="/register" component={Register} exact />
             <PrivateRoute path="/item/:id" component={Item} exact />
             <PrivateRoute path="/listing" component={Listing} exact />
-            {/* <PrivateRoute path="/user/listing" component={Chat} exact /> */}
-            <PrivateRoute path="/chat" component={Chat} exact />
+            {/* <PrivateRoute path="/chat" component={Chat} exact /> */}
             <PrivateRoute path="/edit-profile" component={Edit} />
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/item/user/:id" component={YourList} />
