@@ -17,7 +17,8 @@ module.exports = {
     findOneUser: (req, res) => {
         db.User.findAll({
             where: {
-                id: req.payload.userId
+                // id: req.payload.userId
+                id: req.params.id
             },
             includes: [
                 { model: db.User }

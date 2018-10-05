@@ -9,7 +9,7 @@ class YourList extends Component {
 
         this.state = {
             data: [],
-            userData: [],
+            userData: {},
             userID: this.props.match.params.id
         }
     }
@@ -46,7 +46,7 @@ class YourList extends Component {
     displayUser() {
         axios.get(`/api/user/${this.state.userID}`)
             .then((res) => {
-                this.setState({ userData: res.data })
+                this.setState({ userData: res.data[0] })
             })
             .catch((err) => {
                 console.error(err);
