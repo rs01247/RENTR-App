@@ -20,7 +20,10 @@ module.exports = {
         )
             .then((dbItem) => {
                 res.json(dbItem);
-            });
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     },
 
     // READ
@@ -32,7 +35,10 @@ module.exports = {
         })
             .then((dbItem) => {
                 res.json(dbItem);
-            });
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     },
 
     // FIND ALL
@@ -44,6 +50,9 @@ module.exports = {
         })
         .then((dbItem) => {
             res.json(dbItem);
+        })
+        .catch((err) => {
+            console.error(err);
         })
     },
 
@@ -76,7 +85,10 @@ module.exports = {
             })
             .then((dbItem) => {
                 res.json(dbItem);
-            });
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     },
 
     // DELETE
@@ -88,7 +100,10 @@ module.exports = {
         })
             .then((dbItem) => {
                 res.json(dbItem)
-            });
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     }
 
 }; // END EXPORT

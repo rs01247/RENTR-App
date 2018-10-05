@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         itemName: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         description: {
             type: DataTypes.TEXT,
@@ -22,17 +22,16 @@ module.exports = (sequelize, DataTypes) => {
         date: {
             type: DataTypes.DATE,
             defaultValue: sequelize.NOW,
-            allowNull: false 
+            allowNull: true
         },
         isAvailable: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
             default: true
         },
         rating: {
             type: DataTypes.INTEGER,
             defualt: 0,
-            allowNull: false
+            allowNull: true
         }
     });
 
