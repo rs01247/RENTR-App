@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Chat from "../Chat"
+import Chat from "../Chat/Chat"
 import Stripe from "../Stripe/Stripe"
 import MainNav from "../MainPage/Navbar";
 import "./Item.css";
