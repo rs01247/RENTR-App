@@ -18,7 +18,7 @@ class Item extends Component {
 
         this.state = {
             data: [],
-            userData: [],
+            userData: {},
             id: this.props.match.params.id,
             location: this.props.match.params.location,
             // lat: this.props.match.params.lat,
@@ -30,7 +30,6 @@ class Item extends Component {
 
     componentDidMount() {
         this.displayItem();
-        // this.displayUser();
     }
 
     submit(e) {
@@ -69,9 +68,10 @@ class Item extends Component {
     }
 
     displayUser() {
+        console.log(this.state.data.UserId)
         axios.get(`/api/user/${this.state.data.UserId}`)
             .then((res) => {
-                this.setState({ userData: res.data })
+                this.setState({ userData: res.data[0] })
                 console.log(this.state.userData)
             })
             .catch((err) => {
@@ -88,8 +88,8 @@ class Item extends Component {
             response => {
                 const { lat, lng } = response.results[0].geometry.location;
                 //   console.log(lat, lng);
-                  this.setState({lat: lat});
-                  this.setState({lng: lng});
+                this.setState({ lat: lat });
+                this.setState({ lng: lng });
                 //   console.log("lat: " + this.state.lat);
                 //   console.log("lng: " + this.state.lng)
             },
@@ -124,7 +124,7 @@ class Item extends Component {
                             <div className="col-4 p-1">
                                 <div className="item-div row">
                                     <h3>Listed by {this.state.userData.userName}</h3>
-                                    <h5>{this.state.userData.createdAt}</h5>
+                                    <h5>{this.state.data.createdAt}</h5>
                                 </div>
                                 <div className="item-div row">
                                     <p>{this.state.data.description}</p>
