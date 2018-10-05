@@ -32,8 +32,6 @@ class PostBody extends Component {
         const token =authHelpers.getToken();
         const payload = authHelpers.parseToken(token);
         console.log(payload);
-        // payload.userId
-        console.log(this.state.data)
         return (
             <div>
                 <MainNav />

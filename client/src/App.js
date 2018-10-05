@@ -11,6 +11,7 @@ import Chat from "./components/Chat/Chat";
 import Listing from "./components/Listing";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from './components/ProfilePage/Profile';
+import Edit from './components/EditProfile/Edit';
 import YourList from "./components/YourList";
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
             <PrivateRoute path="/listing" component={Listing} exact />
             {/* <PrivateRoute path="/user/listing" component={Chat} exact /> */}
             <PrivateRoute path="/chat" component={Chat} exact />
+            <PrivateRoute path="/edit-profile" component={Edit} />
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/item/user/:id" component={YourList} />
           </div>
