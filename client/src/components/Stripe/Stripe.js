@@ -7,7 +7,7 @@ class Charge extends Component {
     return (
       <StripeProvider apiKey="pk_test_P2eg91VQqiXcRyShaMaspkMY">
         <div className="example">
-          <h1>React Stripe Elements Example</h1>
+          <h4>React Stripe Elements Example</h4>
           <Elements>
             <CheckoutForm />
           </Elements>
