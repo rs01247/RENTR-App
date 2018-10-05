@@ -149,6 +149,9 @@ class Item extends Component {
                             </div>
 
                         </div>
+                        <div className="row mt-4">
+                            <Stripe />
+                        </div>
                     </div>
                 </div>
             </div>
