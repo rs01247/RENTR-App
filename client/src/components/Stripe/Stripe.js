@@ -8,7 +8,7 @@ class Charge extends Component {
     return (
       <StripeProvider apiKey="pk_test_P2eg91VQqiXcRyShaMaspkMY">
         <div className="example">
-          <h1>Use Stripe to process your credit card.</h1>
+          <h4 id="stripe">Use Stripe to process your credit card.</h4>
           <Elements>
             <div className="checkout">
             <CheckoutForm />

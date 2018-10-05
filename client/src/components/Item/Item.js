@@ -139,9 +139,15 @@ class Item extends Component {
                             </div>
                         </div>
                         <div className="row mt-4">
-                            <Chat
-                                key={this.state.id}
-                                id={this.state.userData.id} />
+                            <div className="col-6">
+                                <Chat
+                                    key={this.state.id}
+                                    id={this.state.userData.id} />
+                            </div>
+                            <div className="col-6 mt-3">
+                                <Stripe />
+                            </div>
+
                         </div>
                         <div className="row mt-4">
                             <Stripe />
