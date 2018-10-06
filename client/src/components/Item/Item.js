@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Chat from "../Chat"
+import Chat from "../chat"
 import Stripe from "../Stripe/Stripe"
 import MainNav from "../MainPage/Navbar";
 import "./Item.css";
@@ -20,6 +20,7 @@ class Item extends Component {
         this.state = {
             data: [],
             userData: {},
+            ownData: {},
             id: this.props.match.params.id,
             location: this.props.match.params.location,
             // lat: this.props.match.params.lat,
@@ -31,6 +32,7 @@ class Item extends Component {
 
     componentDidMount() {
         this.displayItem();
+        this.displayYourself();
     }
 
     submit(e) {
@@ -38,13 +40,30 @@ class Item extends Component {
 
         const token = authHelpers.getToken();
         const payload = authHelpers.parseToken(token)
-
+        console.log(payload)
         axios.post("/api/email/send", {
             to: this.state.userData.email,
             from: payload.email,
-            subject: "A RENTR would like your item!",
-            text: "Please view your listings page on RENTR. Thank you",
-            html: "<strong>Please view your listings page on RENTR. Thank you</strong>"
+            subject: `A RENTR would like to rent ${this.state.data.itemName}`,
+            text: `Hello
+            
+            ${this.state.ownData.userName} has requested to be your RENTR for ${this.state.data.itemName}.
+
+            If you accept this request, please access your listings page on RENTR and change the status of "Available" to FALSE.
+
+            ${this.state.ownData.userName} will be notified of your acceptance. 
+
+            Thank you!
+            `,
+            html: `<strong>Hello
+            
+            ${this.state.ownData.userName} has requested to be your RENTR for ${this.state.data.itemName}.
+
+            If you accept this request, please access your listings page on RENTR and change the status of "Available" to FALSE.
+
+            ${this.state.ownData.userName} will be notified of your acceptance. 
+
+            Thank you!</strong>`
         })
             .then((res) => {
                 console.log("SEND")
@@ -80,6 +99,20 @@ class Item extends Component {
             })
     }
 
+    displayYourself() {
+        const token = authHelpers.getToken();
+        const payload = authHelpers.parseToken(token)
+        console.log(payload);
+        axios.get(`/api/user/${payload.userID}`)
+            .then((res) => {
+                this.setState({ ownData: res.data[0] })
+                console.log(this.state.ownData);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+
+    }
     convertZip() {
         // axios.get(`/api/user/${this.state.data.UserId}`)
         //     .then((res) => {
@@ -97,11 +130,10 @@ class Item extends Component {
             error => {
                 console.error(error);
             }
-        );
-        // })
-        // .catch((err) => {
-        //     console.error(err);
-        // })
+        )
+            .catch((err) => {
+                console.error(err);
+            })
     }
 
 
@@ -142,15 +174,12 @@ class Item extends Component {
                             <div className="col-6">
                                 <Chat
                                     key={this.state.id}
-                                    id={this.state.userData.id} />
+                                    id={this.state.userData.id}
+                                    ownName={this.state.ownData.userName} />
                             </div>
                             <div className="col-6 mt-3">
                                 <Stripe />
                             </div>
-
-                        </div>
-                        <div className="row mt-4">
-                            <Stripe />
                         </div>
                     </div>
                 </div>

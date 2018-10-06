@@ -88,13 +88,14 @@ class Chat extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.id);
     firebase.database().ref().on("value", (snapshot) => {
       const messages = snapshot.val();
       const messageArr = [];
       for (const key in messages) {
         messageArr.push(messages[key]);
       }
-      console.log(messageArr);
+      // console.log(messageArr);
       this.setState({ messages: messageArr });
     })
     // this.displayUser();

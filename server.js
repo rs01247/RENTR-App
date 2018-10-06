@@ -42,8 +42,8 @@ if (process.env.NODE_ENV === "production") {
 
 // SEND EVERY REQUEST TO REACT APP
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  // res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // FILE PATH FOR STRIPE
