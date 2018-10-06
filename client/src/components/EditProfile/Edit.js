@@ -11,6 +11,7 @@ class Edit extends Component {
         firstName: "",
         lastName: "",
         location: "",
+        // image: "",
         Email: "",
         phoneNumber: ""
 
@@ -30,6 +31,7 @@ class Edit extends Component {
                     firstName: res.data.firstName,
                     lastName: res.data.lastName,
                     location: res.data.location,
+                    // image: res.data.image,
                     Email: res.data.Email,
                     phoneNumber: res.data.phoneNumber
                 })

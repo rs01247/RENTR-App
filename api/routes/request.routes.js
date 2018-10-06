@@ -9,6 +9,7 @@ router.post("/", ctrl.createRequest);
 router.get("/:id", ctrl.findOneRequest);
 /**GET ALL Request data from Request table */
 router.get("/", ctrl.findAllRequest);
+router.get("/requestor/:requestorId/item/:itemId", ctrl.findByRequestor);
 /**UPDATE Request WHERE Request is email FROM Request table */
 router.put("/:id", ctrl.updateRequest);
 /**DELETE Request WHERE email is Request FROM Request table */

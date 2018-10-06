@@ -28,20 +28,27 @@ class PostBody extends Component {
             })
     }
 
+    itemAvailable() {
+        this.state.data.filter()
+    }
+
     render() {
-        const token =authHelpers.getToken();
+        const token = authHelpers.getToken();
         const payload = authHelpers.parseToken(token);
         console.log(payload);
         return (
             <div>
                 <MainNav />
                 <div className="container">
-                    <UserSelect 
-                        userID = {payload.userID}
+                    <UserSelect
+                        userID={payload.userID}
                     />
                     <Recent>
-                        {this.state.data.map(item => (
+                        {this.state.data.filter(view => {
+                            return view.isAvailable === true;
+                        }).map(item => (
                             <Itembox
+                                // isShowing={false}
                                 location={item.location}
                                 itemName={item.itemName}
                                 image={item.image}
@@ -55,7 +62,7 @@ class PostBody extends Component {
                         ))}
                     </Recent>
                 </div>
-            </div>  
+            </div>
         )
     }
 }
