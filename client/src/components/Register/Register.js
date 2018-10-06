@@ -12,6 +12,7 @@ class Register extends Component {
             lastName: "",
             email: "",
             location: "",
+            // image: "",
             phoneNumber: "",
             userName: "",
             password: ""
@@ -48,16 +49,20 @@ class Register extends Component {
                                     <p style={{ fontSize: "1em" }}>Please fill out your information</p>
                                     <form>
                                         <div className="form-group">
-                                            <input type="username" className="form-control" id="registerFirstname" name="firstName" value={this.state.firstName} onChange={this.onChange} placeholder="First Name"></input>
+                                            <input type="text" className="form-control" id="registerFirstname" name="firstName" value={this.state.firstName} onChange={this.onChange} placeholder="First Name"></input>
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="username" className="form-control" id="regsiterLastname" name="lastName" value={this.state.lastName} onChange={this.onChange} placeholder="Last Name"></input>
+                                            <input type="text" className="form-control" id="regsiterLastname" name="lastName" value={this.state.lastName} onChange={this.onChange} placeholder="Last Name"></input>
                                         </div>
 
                                         <div className="form-group">
                                             <input type="email" className="form-control" id="registerEmail" name="email" value={this.state.email} onChange={this.onChange} placeholder="Email"></input>
                                         </div>
+
+                                        {/* <div className="form-group">
+                                            <input type="text" className="form-control" id="registerImage" name="image" value={this.state.image} onChange={this.onChange} placeholder="User Image"></input>
+                                        </div> */}
 
                                         <div className="form-group">
                                             <input type="location" className="form-control" id="registerLocation" name="location" value={this.state.location} onChange={this.onChange} placeholder="Enter Zip Code"></input>
@@ -68,7 +73,7 @@ class Register extends Component {
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="username" className="form-control" id="registerUsername" name="userName" value={this.state.userName} onChange={this.onChange} placeholder="UserName"></input>
+                                            <input type="text" className="form-control" id="registerUsername" name="userName" value={this.state.userName} onChange={this.onChange} placeholder="UserName"></input>
                                         </div>
 
                                         <div className="form-group">

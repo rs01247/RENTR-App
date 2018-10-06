@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
                 len: [5]
             }
         },
+        // image: {
+        //     type: DataTypes.TEXT,
+        //     allowNull: false
+        // },
         salt: DataTypes.STRING,
         hash: DataTypes.STRING,
         email: {

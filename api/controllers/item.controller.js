@@ -1,4 +1,6 @@
 const db = require('../models');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = {
 
@@ -85,8 +87,11 @@ module.exports = {
             })
             .then((dbItem) => {
                 res.json(dbItem);
+                // if (req.body.isAvailable === false) {
+                //     THIS IS WHERE LOGIC TO SEND AN EMAIL OR HIDE DIV WOULD GO
+                // }
             })
-            .catch((err) => {
+            .catch((err) => { 
                 console.error(err);
             })
     },

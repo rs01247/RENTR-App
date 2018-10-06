@@ -14,6 +14,7 @@ class Profile extends Component {
         firstName: "",
         lastName: "",
         location: "",
+        // image: "",
         Email: "",
         phoneNumber: "",
         userName: ""
@@ -35,6 +36,7 @@ class Profile extends Component {
                     lastName: res.data[0].lastName,
                     email: res.data[0].email,
                     location: res.data[0].location,
+                    // image: res.data[0].image,
                     phoneNumber: res.data[0].phoneNumber,
                     userName: res.data[0].userName
                 })
@@ -54,6 +56,7 @@ class Profile extends Component {
                 lastName: this.state.lastName,
                 email: this.state.email,
                 location: this.state.location,
+                // image: this.state.image,
                 phoneNumber: this.state.phoneNumber,
                 userName: this.state.userName
             }
@@ -65,6 +68,7 @@ class Profile extends Component {
                         lastName: res.data.lastName,
                         email: res.data.email,
                         location: res.data.location,
+                        // image: res.data.image,
                         phoneNumber: res.data.phoneNumber,
                         userName: this.state.userName
                     })

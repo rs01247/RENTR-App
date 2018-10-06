@@ -43,7 +43,7 @@ class Item extends Component {
         console.log(payload)
         axios.post("/api/email/send", {
             to: this.state.userData.email,
-            from: payload.email,
+            from: "rentrcontroller@gmail.com",
             subject: `A RENTR would like to rent ${this.state.data.itemName}`,
             text: `Hello
             
@@ -55,15 +55,15 @@ class Item extends Component {
 
             Thank you!
             `,
-            html: `<strong>Hello
-            
+            html: `<strong>Hello</strong>
+            <br><br>
             ${this.state.ownData.userName} has requested to be your RENTR for ${this.state.data.itemName}.
-
+            <br><br>
             If you accept this request, please access your listings page on RENTR and change the status of "Available" to FALSE.
-
+            <br><br>
             ${this.state.ownData.userName} will be notified of your acceptance. 
-
-            Thank you!</strong>`
+            <br><br>
+            <strong>Thank you for using RENTR!</strong>`
         })
             .then((res) => {
                 console.log("SEND")
