@@ -21,13 +21,17 @@ module.exports = (sequelize, DataTypes) => {
         },
         date: {
             type: DataTypes.DATE,
-            defaultValue: Date.now,
-            allowNull: false 
+            defaultValue: sequelize.NOW,
+            allowNull: true
         },
         isAvailable: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: true
+            default: true
+        },
+        rating: {
+            type: DataTypes.INTEGER,
+            defualt: 0,
+            allowNull: true
         }
     });
 
