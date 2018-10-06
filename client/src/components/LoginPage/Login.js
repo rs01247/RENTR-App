@@ -20,6 +20,7 @@ class Login extends Component {
             [e.target.name]: e.target.value
         })
     }
+
     submit(e) {
         e.preventDefault();
         axios.post("/auth/login", this.state)
@@ -34,6 +35,7 @@ class Login extends Component {
                 console.log("it failed!")
             })
     }
+
     render() {
         return (
             <div className="login-form">
