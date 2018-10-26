@@ -27,7 +27,7 @@ class Profile extends Component {
     }
 
     grabData() {
-        axios.get("api/user/")
+        axios.get("api/user/" + this.state.userId)
             .then((res) => {
                 console.log("meme", res.data);
                 this.setState({
