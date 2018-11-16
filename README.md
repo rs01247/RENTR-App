@@ -1,6 +1,5 @@
-# project-3
+# RENTR - Peer to Peer Lending
 # VERSION 1.0
-#RENTR
 
 RENTR is designed to be used for the sharing of goods, it's for people who have things that they're not using to meet up with people who need things they don't have. 
 
