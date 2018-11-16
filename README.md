@@ -1,5 +1,5 @@
 # RENTR - Peer to Peer Lending
-# VERSION 1.0
+## VERSION 1.0
 
 RENTR is a peer-to-peer rental service application designed to provide users a safe marketplace to rent out items that they may not need on a daily basis.
 
@@ -8,6 +8,8 @@ Usually, people will ask around their local circle of friends if they need to bo
 Our platform provides users a way to reach outside of their immediate social network and connect with others who may have items they are looking to borrow.
 
 We also strive to assure our users that the RENTR platform will be both safe and efficient.
+
+
 
 Tools Used:
   * React
@@ -19,6 +21,8 @@ Tools Used:
   * Sendgrid API
   * Firebase
   * Stripe API
+
+
 
 To use RENTR you must register and create a profile, users will be expected to log in upon entering the site. 
 
