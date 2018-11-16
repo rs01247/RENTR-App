@@ -14,6 +14,8 @@ People will look at the items you have listed to see if they would like to rent 
 
 Once you have found an item that you are interested in, there is a chat feature associated with the item so you can negotiate with the owner of the item, and we have also used the Stripe API as a way of taking payment for items that are not free. 
 
+A live demo of this app can be found [here](https://limitless-thicket-78191.herokuapp.com/)
+
 Happy renting. 
 
 
