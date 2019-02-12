@@ -15,7 +15,6 @@ const Landing = () => {
                     <a href="/login" className="top-button btn-lg m-1 btn btn-primary">Login</a>
                     <a href="/register" className="top-button btn-lg m-1 btn btn-primary">Register</a>
                 </div>
-
             </div>
         </div>
     )
